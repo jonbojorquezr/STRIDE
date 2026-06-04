@@ -44,6 +44,11 @@
   --endure-tint: #fde4ea;
   --hydrate: #009EFF;      /* Azul Agua */
   --hydrate-tint: #e1f3ff;
+  /* Variantes legibles (≥4.5:1 sobre claro) para texto y badges.
+     Los colores brillantes de arriba quedan para tints, bordes y hovers. */
+  --recover-ink: #2f7a12;
+  --endure-ink: #c4002b;
+  --hydrate-ink: #0a6fc2;
 
   /* Tipografía */
   --font-display: 'Config Condensed', 'Arial Narrow', sans-serif;

@@ -26,7 +26,7 @@
 .opt-label { display: block; margin-bottom: 12px; color: var(--ink-3); }
 .opt-label strong { color: var(--ink); }
 .flavor-row { display: flex; gap: 10px; flex-wrap: wrap; }
-.flavor { display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink-2); font-size: 14px; transition: border-color .2s, color .2s; }
+.flavor { display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; min-height: 44px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink-2); font-size: 14px; transition: border-color .2s, color .2s; }
 .flavor-dot { width: 13px; height: 13px; border-radius: 50%; background: var(--fc); box-shadow: 0 0 0 3px color-mix(in srgb, var(--fc) 20%, transparent); }
 .flavor.on { border-color: var(--fc); color: var(--ink); }
 
@@ -89,6 +89,6 @@
 .rel-slot { width: 72px; height: 72px; flex: 0 0 auto; }
 .rel-meta { display: flex; flex-direction: column; gap: 3px; flex: 1; }
 .rel-meta strong { font-family: var(--font-display); font-stretch: 84%; text-transform: uppercase; font-size: 20px; }
-.rel-arrow { color: var(--c); font-size: 18px; transition: transform .25s var(--ease); }
+.rel-arrow { color: var(--c-ink); font-size: 18px; transition: transform .25s var(--ease); }
 .rel-card:hover .rel-arrow { transform: translateX(4px); }
 @media (max-width: 820px) { .rel-grid { grid-template-columns: 1fr; } }

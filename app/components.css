@@ -2,6 +2,17 @@
    STRIDE — Componentes compartidos: Nav, Cart, Footer
    ============================================================ */
 
+/* ---------- Foco visible para navegación con teclado ---------- */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--night);
+  outline-offset: 2px;
+}
+.dark :where(a, button, input, select, textarea, [tabindex]):focus-visible,
+.nav--dark :where(a, button):focus-visible,
+.footer :where(a, button):focus-visible {
+  outline-color: var(--aqua);
+}
+
 /* ---------- Logo ---------- */
 .logo { display: inline-flex; align-items: center; gap: 9px; }
 .logo-img { height: 26px; width: auto; display: block; }
@@ -24,15 +35,15 @@
 .nav-actions { margin-left: auto; display: flex; align-items: center; gap: 14px; }
 
 .lang { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); }
-.lang button { background: none; border: none; color: var(--ink-3); padding: 2px; font: inherit; letter-spacing: .04em; }
+.lang button { background: none; border: none; color: var(--ink-3); padding: 2px 6px; font: inherit; letter-spacing: .04em; display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 44px; }
 .lang button.on { color: var(--ink); font-weight: 700; }
 .nav--dark .lang button.on { color: var(--aqua); }
 
-.icon-btn { position: relative; background: none; border: none; color: var(--ink); padding: 6px; border-radius: 10px; display: grid; place-items: center; }
+.icon-btn { position: relative; background: none; border: none; color: var(--ink); padding: 6px; border-radius: 10px; display: grid; place-items: center; min-width: 44px; min-height: 44px; }
 .nav--dark .icon-btn { color: #eaf4f1; }
 .icon-btn:hover { color: var(--accent); }
 .cart-count { position: absolute; top: -3px; right: -4px; min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; background: var(--aqua); color: var(--night); font-family: var(--font-mono); font-size: 10px; display: grid; place-items: center; font-weight: 700; }
-.burger { display: none; background: none; border: none; flex-direction: column; gap: 5px; padding: 8px; }
+.burger { display: none; background: none; border: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 8px; min-width: 44px; min-height: 44px; }
 .burger span { width: 22px; height: 2px; background: var(--ink); transition: transform .3s var(--ease), opacity .3s; }
 .nav--dark .burger span { background: #eaf4f1; }
 .burger.is-open span:first-child { transform: translateY(3.5px) rotate(45deg); }

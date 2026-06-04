@@ -66,12 +66,12 @@
 .div-card:hover { transform: translateY(-6px); border-color: var(--c); box-shadow: 0 30px 60px -34px color-mix(in srgb, var(--c) 55%, transparent); }
 .div-photo { position: relative; }
 .div-slot { width: 100%; aspect-ratio: 4/3; border-radius: 0; --is-bg: var(--tint); }
-.div-badge { position: absolute; left: 14px; top: 14px; background: var(--c); color: #fff; padding: 6px 12px; border-radius: 100px; font-size: 11px; letter-spacing: .1em; }
+.div-badge { position: absolute; left: 14px; top: 14px; background: var(--c-ink); color: #fff; padding: 6px 12px; border-radius: 100px; font-size: 11px; letter-spacing: .1em; }
 .div-body { padding: 26px 24px 30px; }
-.div-mood { color: var(--c); letter-spacing: .1em; font-size: 11px; }
+.div-mood { color: var(--c-ink); letter-spacing: .1em; font-size: 11px; }
 .div-card h3 { font-family: var(--font-display); font-stretch: 82%; font-size: 30px; text-transform: uppercase; margin: 12px 0 10px; letter-spacing: -.01em; }
 .div-card .lede { font-size: 14.5px; margin-bottom: 20px; }
-.div-link { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .04em; color: var(--c); display: inline-flex; align-items: center; gap: 8px; }
+.div-link { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .04em; color: var(--c-ink); display: inline-flex; align-items: center; gap: 8px; }
 .div-card:hover .div-link .arrow { transform: translateX(5px); }
 @media (max-width: 880px) { .div-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } }
 

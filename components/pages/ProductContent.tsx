@@ -402,7 +402,7 @@ function Related() {
               href={DIV_URL[it.id]}
               key={it.id}
               className="rel-card reveal"
-              style={{ "--c": `var(${it.c})`, "--delay": `${i * 70}ms` } as React.CSSProperties}
+              style={{ "--c": `var(${it.c})`, "--c-ink": `var(--${it.id}-ink)`, "--delay": `${i * 70}ms` } as React.CSSProperties}
             >
               <ImageSlot className="rel-slot" shape="rounded" radius={14} src={DIV_IMG[it.id].card} alt={"Stride " + it.name} />
               <div className="rel-meta">

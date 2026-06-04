@@ -290,7 +290,7 @@ function Divisions() {
             <article
               className="div-card reveal"
               key={d.id}
-              style={{ "--c": `var(${d.var})`, "--tint": `var(${d.tint})`, "--delay": `${i * 90}ms` } as React.CSSProperties}
+              style={{ "--c": `var(${d.var})`, "--c-ink": `var(--${d.id}-ink)`, "--tint": `var(${d.tint})`, "--delay": `${i * 90}ms` } as React.CSSProperties}
             >
               <div className="div-photo">
                 <ImageSlot

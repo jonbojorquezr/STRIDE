@@ -149,7 +149,7 @@ const DIVDATA: Record<DivisionId, DivEntry> = {
     name: "Hydrate",
     c: "#009EFF",
     tint: "#e1f3ff",
-    btnInk: "#ffffff",
+    btnInk: "#00111E",
     mood: { es: ["Risa", "Vitalidad", "Fresco"], en: ["Laughter", "Vitality", "Fresh"] },
     tagline: { es: "Tu flow", en: "Your flow" },
     tagline2: { es: "Refresca", en: "Refresh" },
@@ -207,7 +207,7 @@ function DivHero({ D, division }: { D: DivEntry; division: DivisionId }) {
     <section className="dh">
       <div className="wrap dh-in">
         <div className="dh-copy">
-          <p className="eyebrow reveal" style={{ color: "var(--c)" }}>
+          <p className="eyebrow reveal" style={{ color: "var(--c-ink)" }}>
             Stride · {D.name} — {D.kicker[lang]}
           </p>
           <h1 className="display h-xl dh-title reveal" style={{ "--delay": "60ms" } as React.CSSProperties}>
@@ -255,7 +255,7 @@ function DivPhilosophy({ D }: { D: DivEntry }) {
   return (
     <section className="section dphil" id="filosofia">
       <div className="wrap">
-        <p className="eyebrow reveal" style={{ color: "var(--c)" }}>
+        <p className="eyebrow reveal" style={{ color: "var(--c-ink)" }}>
           {t("La filosofía", "The philosophy")}
         </p>
         <div className="dphil-grid">
@@ -319,7 +319,7 @@ function DivProduct({ D, division }: { D: DivEntry; division: DivisionId }) {
           </div>
         </div>
         <div className="dprod-buy">
-          <p className="eyebrow" style={{ color: "var(--c)" }}>
+          <p className="eyebrow" style={{ color: "var(--c-ink)" }}>
             {t("El producto", "The product")}
           </p>
           <h2 className="display h-md dprod-title">{D.product.name}</h2>
@@ -354,7 +354,7 @@ function DivProduct({ D, division }: { D: DivEntry; division: DivisionId }) {
             <button className={"mode" + (mode === "sub" ? " on" : "")} onClick={() => setMode("sub")}>
               <span className="mode-top">
                 <strong>{t("Suscripción", "Subscribe")}</strong>
-                <em className="save" style={{ background: "var(--c)", color: "var(--btn-ink)" }}>
+                <em className="save" style={{ background: "var(--c-ink)", color: "#fff" }}>
                   -15%
                 </em>
               </span>
@@ -430,7 +430,7 @@ function DivCross({ current }: { current: DivisionId }) {
                 href={DIV_URL[k]}
                 key={k}
                 className="dcross-card reveal"
-                style={{ "--oc": o.c, "--delay": `${i * 80}ms` } as React.CSSProperties}
+                style={{ "--oc": o.c, "--oc-ink": `var(--${k}-ink)`, "--delay": `${i * 80}ms` } as React.CSSProperties}
               >
                 <ImageSlot className="dcross-slot" shape="rounded" radius={14} src={DIV_IMG[k].card} alt={"Stride " + o.name} />
                 <div className="dcross-meta">
@@ -454,7 +454,14 @@ export default function DivisionContent({ division }: { division: DivisionId }) 
   return (
     <div
       className="division"
-      style={{ "--c": D.c, "--tint": D.tint, "--btn-ink": D.btnInk } as React.CSSProperties}
+      style={
+        {
+          "--c": D.c,
+          "--c-ink": `var(--${division}-ink)`,
+          "--tint": D.tint,
+          "--btn-ink": D.btnInk,
+        } as React.CSSProperties
+      }
     >
       <Nav />
       <main>
