@@ -49,11 +49,11 @@
 .opt-label { display: block; margin-bottom: 12px; color: var(--ink-3); }
 .opt-label strong { color: var(--ink); }
 .flavor-row { display: flex; gap: 10px; flex-wrap: wrap; }
-.flavor { display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; min-height: 44px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink-2); font-size: 14px; transition: border-color .2s, color .2s; }
+.flavor { display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; min-height: 44px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink-2); font-size: 14px; transition: border-color .2s, color .2s, transform .16s var(--ease); }
 .flavor-dot { width: 13px; height: 13px; border-radius: 50%; background: var(--fc); box-shadow: 0 0 0 3px color-mix(in srgb, var(--fc) 20%, transparent); }
 .flavor.on { border-color: var(--fc); color: var(--ink); }
 .mode-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
-.mode { text-align: left; padding: 16px 18px; border-radius: var(--r); border: 1.5px solid var(--line); background: var(--card); display: flex; flex-direction: column; gap: 6px; min-height: 80px; justify-content: center; transition: border-color .2s, background .2s; }
+.mode { text-align: left; padding: 16px 18px; border-radius: var(--r); border: 1.5px solid var(--line); background: var(--card); display: flex; flex-direction: column; gap: 6px; min-height: 80px; justify-content: center; transition: border-color .2s, background .2s, transform .16s var(--ease); }
 .mode-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .mode-top strong { font-size: 15px; white-space: nowrap; }
 .save { font-family: var(--font-mono); font-style: normal; font-size: 11px; padding: 2px 8px; border-radius: 100px; font-weight: 700; }

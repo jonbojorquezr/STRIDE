@@ -13,6 +13,35 @@
   outline-color: var(--aqua);
 }
 
+/* ---------- Micro-interacciones: hover + press (feedback táctil) ---------- */
+/* Controles pequeños: transición de transform para un press suave */
+.icon-btn, .burger, .lang button, .quote-nav button, .dots button,
+.cart-qty button, .stepper button {
+  transition: transform .16s var(--ease), color .2s, border-color .2s, background .2s, box-shadow .25s;
+}
+.icon-btn:hover { transform: translateY(-1px); }
+/* Press: hundido sutil en todo lo accionable */
+.icon-btn:active, .burger:active, .lang button:active,
+.quote-nav button:active, .dots button:active, .cart-qty button:active,
+.stepper button:active, .flavor:active, .mode:active { transform: scale(.92); }
+.div-card:active, .dcross-card:active, .rel-card:active { transform: translateY(0) scale(.99); }
+
+/* Respeta reduce motion: sin transforms de hover/press */
+@media (prefers-reduced-motion: reduce) {
+  .btn, .arrow, .icon-btn, .div-card, .dcross-card, .rel-card,
+  .flavor, .mode, .stepper button, .div-link {
+    transition: color .2s, background .2s, border-color .2s, box-shadow .2s;
+  }
+  .btn:hover, .btn:active, .btn:hover .arrow, .btn:active .arrow,
+  .icon-btn:hover, .icon-btn:active, .burger:active, .lang button:active,
+  .div-card:hover, .div-card:active, .dcross-card:hover, .dcross-card:active,
+  .rel-card:hover, .rel-card:active, .flavor:active, .mode:active,
+  .stepper button:active, .quote-nav button:active, .dots button:active,
+  .cart-qty button:active {
+    transform: none;
+  }
+}
+
 /* ---------- Logo ---------- */
 .logo { display: inline-flex; align-items: center; gap: 9px; }
 .logo-img { height: 26px; width: auto; display: block; }

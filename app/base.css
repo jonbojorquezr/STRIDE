@@ -137,8 +137,10 @@ img, svg, image-slot { display: block; max-width: 100%; }
 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--ink); }
 .btn-lg { padding: 18px 34px; font-size: 15px; }
+.btn:active { transform: scale(.97); transition-duration: .11s; }
 .arrow { transition: transform .3s var(--ease); }
 .btn:hover .arrow { transform: translateX(4px); }
+.btn:active .arrow { transform: translateX(1px); }
 
 /* ---------- Reveal (robusto: base visible, entrada por keyframes) ---------- */
 .reveal { opacity: 1; transform: none; }
