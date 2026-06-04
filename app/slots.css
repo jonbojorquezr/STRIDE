@@ -1,0 +1,32 @@
+/* ---------- Image slots (reemplazo de <image-slot>) ---------- */
+.img-slot {
+  --is-bg: var(--paper-2);
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--is-bg);
+}
+.dark .img-slot {
+  --is-bg: #0a2735;
+}
+.img-slot > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.img-slot-ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  opacity: 0.7;
+}
+.dark .img-slot-ph {
+  color: rgba(255, 255, 255, 0.55);
+}

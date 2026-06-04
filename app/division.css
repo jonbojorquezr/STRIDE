@@ -1,0 +1,87 @@
+/* ============================================================
+   STRIDE — Páginas de LÍNEA styles (temáticas por --c / --tint)
+   ============================================================ */
+.division { --accent: var(--c); }
+.btn-themed { background: var(--c); color: var(--btn-ink); border-color: transparent; }
+.btn-themed:hover { box-shadow: 0 14px 36px -10px color-mix(in srgb, var(--c) 50%, transparent); }
+
+/* ---------- Hero ---------- */
+.dh { position: relative; padding: clamp(40px, 6vw, 84px) 0 clamp(48px, 7vw, 100px); overflow: hidden; }
+.dh::before { content: ""; position: absolute; inset: 0; background:
+  radial-gradient(120% 90% at 82% 0%, var(--tint), transparent 60%); z-index: -1; }
+.dh-in { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.dh-title { margin-top: 18px; }
+.dh-mood { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.dh-chip { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 35%, transparent); border-radius: 100px; padding: 7px 14px; background: color-mix(in srgb, var(--c) 7%, transparent); }
+.dh-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.dh-visual { position: relative; }
+.dh-frame { position: relative; aspect-ratio: 4/5; }
+.dh-slot { width: 100%; height: 100%; --is-bg: color-mix(in srgb, var(--c) 10%, var(--paper-2)); }
+.dh-badge { position: absolute; left: 16px; top: 16px; background: var(--c); color: var(--btn-ink); font-family: var(--font-display); font-stretch: 84%; text-transform: uppercase; letter-spacing: .04em; font-size: 14px; padding: 7px 15px; border-radius: 100px; }
+.dh-lot { position: absolute; left: 16px; bottom: 14px; color: var(--ink-3); background: color-mix(in srgb, var(--card) 80%, transparent); padding: 4px 10px; border-radius: 6px; font-size: 10px; }
+@media (max-width: 880px) { .dh-in { grid-template-columns: 1fr; } .dh-visual { order: -1; max-width: 380px; } }
+
+/* ---------- Filosofía ---------- */
+.dphil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-top: 28px; }
+.dphil-card { background: var(--paper); padding: 34px 30px 40px; }
+.dphil-n { color: var(--c); display: block; margin-bottom: 26px; font-size: 13px; }
+.dphil-card h3 { font-family: var(--font-display); font-stretch: 80%; text-transform: uppercase; font-size: clamp(28px, 3vw, 40px); margin: 0 0 12px; letter-spacing: -.01em; }
+.dphil-card .lede { font-size: 15px; }
+@media (max-width: 820px) { .dphil-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Producto ---------- */
+.dprod-in { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(34px, 5vw, 72px); align-items: start; }
+.dprod-visual { position: sticky; top: 88px; }
+.dprod-stage { border-radius: var(--r-lg); overflow: hidden; background: radial-gradient(circle at 50% 38%, color-mix(in srgb, var(--c) 14%, var(--paper-2)), var(--paper-2) 70%); border: 1px solid var(--line); padding: 8%; }
+.dprod-slot { width: 100%; aspect-ratio: 1/1; --is-bg: color-mix(in srgb, var(--c) 8%, var(--card)); }
+.dprod-specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; margin-top: 14px; }
+.dprod-specs div { background: var(--paper); padding: 16px 14px; display: flex; flex-direction: column; gap: 4px; }
+.dprod-specs strong { color: var(--c); font-size: 16px; }
+.dprod-specs span { font-size: 11px; color: var(--ink-3); }
+.dprod-title { font-size: clamp(38px, 4.6vw, 60px); }
+.dprod-sub { color: var(--ink-3); margin: 10px 0 22px; }
+.dprod-benefits { list-style: none; padding: 0 0 24px; margin: 0 0 24px; border-bottom: 1px solid var(--line); display: grid; gap: 14px; }
+.dprod-benefits li { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--ink-2); }
+@media (max-width: 880px) { .dprod-in { grid-template-columns: 1fr; } .dprod-visual { position: static; } }
+
+/* controles de compra (autónomos) */
+.opt { margin-bottom: 22px; }
+.opt-label { display: block; margin-bottom: 12px; color: var(--ink-3); }
+.opt-label strong { color: var(--ink); }
+.flavor-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.flavor { display: inline-flex; align-items: center; gap: 9px; padding: 10px 16px; border-radius: 100px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink-2); font-size: 14px; transition: border-color .2s, color .2s; }
+.flavor-dot { width: 13px; height: 13px; border-radius: 50%; background: var(--fc); box-shadow: 0 0 0 3px color-mix(in srgb, var(--fc) 20%, transparent); }
+.flavor.on { border-color: var(--fc); color: var(--ink); }
+.mode-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+.mode { text-align: left; padding: 16px 18px; border-radius: var(--r); border: 1.5px solid var(--line); background: var(--card); display: flex; flex-direction: column; gap: 6px; min-height: 80px; justify-content: center; transition: border-color .2s, background .2s; }
+.mode-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.mode-top strong { font-size: 15px; white-space: nowrap; }
+.save { font-family: var(--font-mono); font-style: normal; font-size: 11px; padding: 2px 8px; border-radius: 100px; font-weight: 700; }
+.mode-sub { font-size: 11px; }
+.mode.on { border-color: var(--c); background: color-mix(in srgb, var(--c) 8%, var(--card)); }
+.buy-row { display: flex; gap: 12px; }
+.stepper { display: flex; align-items: center; border: 1.5px solid var(--line); border-radius: 100px; overflow: hidden; }
+.stepper button { width: 44px; background: none; border: none; font-size: 20px; color: var(--ink); }
+.stepper button:hover { color: var(--c); }
+.stepper span { min-width: 28px; text-align: center; font-family: var(--font-mono); }
+.buy-btn { flex: 1; }
+
+/* ---------- Lifestyle (full-bleed) ---------- */
+.dlife { position: relative; min-height: clamp(360px, 52vw, 560px); display: flex; align-items: flex-end; }
+.dlife-slot { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 0; background: color-mix(in srgb, var(--c) 22%, #0a1a22); }
+.dlife-overlay { position: relative; width: 100%; padding: clamp(34px, 5vw, 72px) 0; background: linear-gradient(to top, rgba(0,17,30,.78), rgba(0,17,30,.05)); }
+.dlife-title { color: #fff; }
+.dlife-line { font-family: var(--font-mono); color: rgba(255,255,255,.85); letter-spacing: .04em; margin: 14px 0 0; font-size: clamp(13px, 1.3vw, 16px); }
+
+/* ---------- Cross-links ---------- */
+.dcross-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.dcross-card { display: flex; align-items: center; gap: 18px; border: 1px solid var(--line); border-radius: var(--r); padding: 16px; background: var(--card); transition: border-color .25s, transform .25s var(--ease); }
+.dcross-card:hover { border-color: var(--oc); transform: translateY(-3px); }
+.dcross-slot { width: 84px; height: 84px; flex: 0 0 auto; --is-bg: color-mix(in srgb, var(--oc) 12%, var(--paper-2)); }
+.dcross-meta { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.dcross-mood { color: var(--oc); font-size: 10.5px; letter-spacing: .08em; }
+.dcross-meta strong { font-family: var(--font-display); font-stretch: 82%; text-transform: uppercase; font-size: 26px; line-height: 1; }
+.dcross-tag { font-size: 14px; color: var(--ink-2); }
+.dcross-arrow { color: var(--oc); font-size: 20px; transition: transform .25s var(--ease); }
+.dcross-card:hover .dcross-arrow { transform: translateX(4px); }
+@media (max-width: 720px) { .dcross-grid { grid-template-columns: 1fr; } }

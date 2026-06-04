@@ -1,0 +1,170 @@
+/* ============================================================
+   STRIDE — Design System v2 (claro · editorial · científico)
+   Marca: Aqua #00EABD · Verde Sombra #006666 · Azul Nocturno #00111E
+   Tipo OFICIAL: Config Condensed (display) · Raveo (texto)
+   ============================================================ */
+
+/* ---------- Tipografías oficiales de marca ---------- */
+@font-face { font-family: 'Config Condensed'; src: url('/fonts/ConfigCondensed-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Config Condensed'; src: url('/fonts/ConfigCondensed-SemiBold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Config Condensed'; src: url('/fonts/ConfigCondensed-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Config Condensed'; src: url('/fonts/ConfigCondensed-ExtraBold.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Config Condensed'; src: url('/fonts/ConfigCondensed-Black.otf') format('opentype'); font-weight: 900; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Raveo'; src: url('/fonts/Raveo-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Raveo'; src: url('/fonts/Raveo-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Raveo'; src: url('/fonts/Raveo-SemiBold.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Raveo'; src: url('/fonts/Raveo-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Raveo'; src: url('/fonts/Raveo-ExtraBold.otf') format('opentype'); font-weight: 800; font-style: normal; font-display: swap; }
+
+:root {
+  /* Marca */
+  --aqua: #00EABD;
+  --aqua-deep: #00b693;
+  --teal: #006666;
+  --night: #00111E;
+  --off: #EBEBEB;
+
+  /* Superficies (claro por defecto) */
+  --paper: #F4F5F2;        /* fondo general, off-white cálido */
+  --paper-2: #FBFBF9;      /* secciones */
+  --card: #FFFFFF;
+  --ink: #00111E;          /* texto principal */
+  --ink-2: #2c4042;        /* texto secundario */
+  --ink-3: #5f7375;        /* muted / mono labels */
+  --line: rgba(0, 17, 30, 0.12);
+  --line-2: rgba(0, 17, 30, 0.07);
+  --accent: var(--teal);   /* acento legible sobre claro */
+  --accent-bright: var(--aqua);
+
+  /* Divisiones (colores oficiales del manual de marca MDIG) */
+  --recover: #8AE02F;      /* Verde Brillante */
+  --recover-tint: #eef9df;
+  --endure: #E20031;       /* Rojo Brillante */
+  --endure-tint: #fde4ea;
+  --hydrate: #009EFF;      /* Azul Agua */
+  --hydrate-tint: #e1f3ff;
+
+  /* Tipografía */
+  --font-display: 'Config Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Raveo', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  /* Layout */
+  --maxw: 1280px;
+  --gutter: clamp(20px, 5vw, 72px);
+  --r: 16px;
+  --r-lg: 26px;
+  --motion: 1;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+::selection { background: var(--aqua); color: var(--night); }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img, svg, image-slot { display: block; max-width: 100%; }
+
+/* ---------- Tipografía ---------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: 800; font-stretch: 75%;
+  letter-spacing: -0.015em; line-height: 0.9;
+  text-transform: uppercase; margin: 0;
+  text-wrap: balance;
+}
+.h-xl { font-size: clamp(52px, 9vw, 132px); }
+.h-lg { font-size: clamp(40px, 6vw, 88px); }
+.h-md { font-size: clamp(30px, 4vw, 56px); }
+.serifless { text-transform: none; letter-spacing: -0.02em; }
+
+.eyebrow {
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--accent); margin: 0;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.eyebrow::before {
+  content: ""; width: 22px; height: 1px; background: currentColor; opacity: .5;
+}
+.lede { color: var(--ink-2); line-height: 1.55; font-size: clamp(16px, 1.3vw, 19px); }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; color: var(--ink-3); }
+
+/* ---------- Layout ---------- */
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gutter); }
+.section { padding: clamp(64px, 10vw, 140px) 0; position: relative; }
+.section--tight { padding: clamp(48px, 7vw, 96px) 0; }
+
+/* Secciones oscuras (ritmo) */
+.dark {
+  background: var(--night); color: #eaf4f1;
+  --ink: #eaf4f1; --ink-2: #a9c4c2; --ink-3: #6f8c8d;
+  --line: rgba(0,234,189,0.16); --line-2: rgba(255,255,255,0.06);
+  --accent: var(--aqua); --card: #06222f;
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--font-display); font-weight: 700; font-stretch: 85%;
+  text-transform: uppercase; letter-spacing: .03em; font-size: 14px;
+  padding: 15px 28px; border-radius: 100px; border: 1.5px solid transparent;
+  transition: transform .25s var(--ease), background .25s, color .25s, border-color .25s, box-shadow .3s;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { box-shadow: 0 14px 30px -12px rgba(0,17,30,.5); }
+.dark .btn-primary { background: var(--aqua); color: var(--night); }
+.dark .btn-primary:hover { box-shadow: 0 14px 40px -10px rgba(0,234,189,.4); }
+.btn-accent { background: var(--aqua); color: var(--night); }
+.btn-accent:hover { box-shadow: 0 14px 36px -10px rgba(0,234,189,.5); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--ink); }
+.btn-lg { padding: 18px 34px; font-size: 15px; }
+.arrow { transition: transform .3s var(--ease); }
+.btn:hover .arrow { transform: translateX(4px); }
+
+/* ---------- Reveal (robusto: base visible, entrada por keyframes) ---------- */
+.reveal { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  html.js .reveal:not(.in) { opacity: 0; transform: translateY(calc(22px * var(--motion))); }
+  html.js .reveal.in { opacity: 1; transform: none; animation: revIn .8s var(--ease) var(--delay,0ms); }
+}
+@keyframes revIn { from { opacity: 0; transform: translateY(calc(22px * var(--motion))); } to { opacity: 1; transform: none; } }
+/* fadeq: solo desliza, nunca oculta (seguro ante congelado de captura) */
+@keyframes fadeq { from { transform: translateY(8px); } to { transform: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ---------- Image slots ---------- */
+image-slot {
+  --is-bg: var(--paper-2);
+  background: var(--paper-2);
+  border-radius: var(--r);
+}
+.dark image-slot { --is-bg: #0a2735; }
+/* leyenda interna del placeholder vacío la maneja el componente */
+
+/* ---------- Líneas técnicas / detalles ---------- */
+.rule { height: 1px; background: var(--line); border: 0; margin: 0; }
+.tag {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-3);
+  border: 1px solid var(--line); border-radius: 100px; padding: 6px 12px;
+  display: inline-flex; align-items: center; gap: 8px; background: transparent;
+}
+
+/* utilidades */
+.stack { display: flex; flex-direction: column; }
+.row { display: flex; align-items: center; }
+.gap-s { gap: 10px; } .gap-m { gap: 18px; } .gap-l { gap: 32px; }
