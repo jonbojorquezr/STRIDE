@@ -27,6 +27,7 @@ type StoreValue = {
   setLang: (l: Lang) => void;
   addToCart: (item: CartItem) => void;
   setQty: (idx: number, qty: number) => void;
+  clearCart: () => void;
   cartCount: () => number;
   cartTotal: () => number;
   /** Traducción reactiva al idioma actual */
@@ -93,6 +94,11 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
+  const clearCart = useCallback(() => {
+    setCart([]);
+    localStorage.setItem("stride_cart", JSON.stringify([]));
+  }, []);
+
   const cartCount = useCallback(() => cart.reduce((s, c) => s + c.qty, 0), [cart]);
   const cartTotal = useCallback(() => cart.reduce((s, c) => s + c.qty * c.price, 0), [cart]);
   const t = useCallback((es: string, en: string) => (lang === "es" ? es : en), [lang]);
@@ -105,6 +111,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     setLang,
     addToCart,
     setQty,
+    clearCart,
     cartCount,
     cartTotal,
     t,
