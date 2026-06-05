@@ -4,11 +4,13 @@
    Reemplaza el Store global del export de Claude Design.
    ============================================================ */
 import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
+import type { ProductKey } from "./catalog";
 
 export type Lang = "es" | "en";
 
 export type CartItem = {
   id: string;
+  key: ProductKey;
   name: string;
   flavor: string;
   mode: "sub" | "once";
