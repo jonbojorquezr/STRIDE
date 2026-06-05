@@ -89,6 +89,28 @@ export function Nav({ dark = false }: { dark?: boolean }) {
 
 function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { t, cart, money, cartTotal, setQty } = useStore();
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
+
+  const checkout = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          items: cart.map((c) => ({ key: c.key, flavor: c.flavor, mode: c.mode, qty: c.qty })),
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.url) throw new Error(data.error || "Error");
+      window.location.href = data.url;
+    } catch {
+      setError(t("No se pudo iniciar el pago. Intenta de nuevo.", "Couldn't start payment. Try again."));
+      setLoading(false);
+    }
+  };
   return (
     <div className={"cart-scrim" + (open ? " open" : "")} onClick={onClose}>
       <aside className="cart-panel" onClick={(e) => e.stopPropagation()} aria-hidden={!open}>
@@ -136,9 +158,19 @@ function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
                 <span className="mono">{t("Subtotal", "Subtotal")}</span>
                 <strong>{money(cartTotal())}</strong>
               </div>
-              <button className="btn btn-accent btn-lg" style={{ width: "100%" }}>
-                {t("Finalizar compra", "Checkout")}
+              <button
+                className="btn btn-accent btn-lg"
+                style={{ width: "100%" }}
+                onClick={checkout}
+                disabled={loading}
+              >
+                {loading ? t("Redirigiendo…", "Redirecting…") : t("Finalizar compra", "Checkout")}
               </button>
+              {error && (
+                <p className="mono" style={{ color: "#d23", textAlign: "center", marginTop: 10 }}>
+                  {error}
+                </p>
+              )}
               <p className="mono" style={{ textAlign: "center", marginTop: 10 }}>
                 {t("Envío calculado al pagar", "Shipping at checkout")}
               </p>
