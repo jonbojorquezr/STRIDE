@@ -15,9 +15,13 @@ import { IMG, DIV_IMG } from "@/lib/images";
 import { unitPrice } from "@/lib/catalog";
 
 const FLAVORS = [
-  { id: "cacao", name: { es: "Cacao", en: "Cacao" }, color: "#7a4a32", tint: "#efe6df" },
+  { id: "chocolate", name: { es: "Chocolate", en: "Chocolate" }, color: "#7a4a32", tint: "#efe6df" },
   { id: "vainilla", name: { es: "Vainilla", en: "Vanilla" }, color: "#caa85a", tint: "#f3ecdb" },
-  { id: "rojos", name: { es: "Frutos rojos", en: "Mixed berry" }, color: "#b14a63", tint: "#f4e2e7" },
+];
+
+const PRESENTATIONS = [
+  { id: "bolsa", key: "recovery-mix" as const, name: { es: "Bolsa 1 kg", en: "1 kg bag" }, note: { es: "16 porciones", en: "16 servings" }, img: IMG.recoveryFront },
+  { id: "sachets", key: "recovery-mix-sachets" as const, name: { es: "Caja de sachets", en: "Sachet box" }, note: { es: "para llevar", en: "grab & go" }, img: IMG.recoverySachets },
 ];
 function Toast({ show, children }: { show: boolean; children: React.ReactNode }) {
   return (
@@ -30,18 +34,20 @@ function Toast({ show, children }: { show: boolean; children: React.ReactNode })
 function PDP() {
   const { t, lang, money, addToCart, cartCount } = useStore();
   const [flavor, setFlavor] = React.useState(0);
+  const [pres, setPres] = React.useState(0);
   const [mode, setMode] = React.useState<"sub" | "once">("sub");
   const [qty, setQty] = React.useState(1);
   const [toast, setToast] = React.useState(false);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const f = FLAVORS[flavor];
-  const unit = unitPrice("recovery-mix", mode);
+  const p = PRESENTATIONS[pres];
+  const unit = unitPrice(p.key, mode);
 
   const add = () => {
     addToCart({
-      id: "recovery-" + f.id,
-      key: "recovery-mix",
-      name: "Recovery Mix",
+      id: p.id + "-" + f.id,
+      key: p.key,
+      name: "Recovery Mix · " + p.name[lang],
       flavor: f.name[lang],
       mode,
       qty,
@@ -64,10 +70,10 @@ function PDP() {
               className="gmain-slot"
               shape="rounded"
               radius={20}
-              src={IMG.recoveryFront}
-              alt={"Recovery Mix " + f.name[lang]}
+              src={p.img}
+              alt={"Recovery Mix " + p.name[lang] + " " + f.name[lang]}
             />
-            <span className="g-lot mono">RECOVERY MIX · {f.name[lang].toUpperCase()}</span>
+            <span className="g-lot mono">RECOVERY MIX · {p.name[lang].toUpperCase()}</span>
           </div>
           <div className="gallery-thumbs">
             {[IMG.recoveryAngle, IMG.recoveryPouch, IMG.recoverySachets].map((src, k) => (
@@ -91,6 +97,25 @@ function PDP() {
               "Post-workout mix with a 3:2 carb-to-protein ratio to refuel glycogen and rebuild muscle. Dissolves clean."
             )}
           </p>
+
+          <div className="opt">
+            <span className="opt-label mono">{t("Presentación", "Format")}</span>
+            <div className="mode-row">
+              {PRESENTATIONS.map((pr, i) => (
+                <button
+                  key={pr.id}
+                  className={"mode" + (i === pres ? " on" : "")}
+                  onClick={() => setPres(i)}
+                >
+                  <span className="mode-top">
+                    <strong>{pr.name[lang]}</strong>
+                    <span className="mono">{money(unitPrice(pr.key, mode))}</span>
+                  </span>
+                  <span className="mode-sub mono">{pr.note[lang]}</span>
+                </button>
+              ))}
+            </div>
+          </div>
 
           <div className="opt">
             <span className="opt-label mono">
@@ -330,27 +355,27 @@ function Reviews() {
   const { t, lang } = useStore();
   const R = [
     {
-      n: "Andrea P.",
-      r: { es: "Maratón CDMX", en: "Mexico City Marathon" },
+      n: "Braulio Macías",
+      r: { es: "Corredor · México", en: "Runner · Mexico" },
       q: {
-        es: "Lo tomo después de cada tirada larga. Diferencia real al día siguiente.",
-        en: "I take it after every long run. Real difference the next day.",
+        es: "Antes me sentía cansadísimo todo el día tras una carrera larga. Con Stride mi cuerpo se recupera mucho más rápido.",
+        en: "I used to feel wiped out all day after a long run. With Stride my body recovers much faster.",
       },
     },
     {
-      n: "Luis M.",
-      r: { es: "Ultra trail", en: "Ultra trail" },
+      n: "Guillermo Armenta",
+      r: { es: "Ciudad de México", en: "Mexico City" },
       q: {
-        es: "Sabor a cacao increíble y nada empalagoso. Mi favorito.",
-        en: "Amazing cacao flavor, not sweet at all. My favorite.",
+        es: "Ya no siento tanta fatiga después de una carrera larga. Puedo entrenar sin ese cansancio extremo.",
+        en: "I no longer feel so much fatigue after a long run. I can train without that extreme tiredness.",
       },
     },
     {
-      n: "Sofía R.",
-      r: { es: "10K · sub 45", en: "10K · sub 45" },
+      n: "Omar Gameros",
+      r: { es: "Monterrey, México", en: "Monterrey, Mexico" },
       q: {
-        es: "Por fin entiendo qué tomo y por qué. Súper transparente.",
-        en: "I finally understand what I take and why. Super transparent.",
+        es: "Siempre sufría de calambres después de las carreras; desde que tomo Stride Recovery ya no tengo esos problemas.",
+        en: "I always cramped after races; since taking Stride Recovery I don't have those problems anymore.",
       },
     },
   ];

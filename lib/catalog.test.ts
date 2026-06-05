@@ -2,8 +2,9 @@ import { describe, it, expect } from "vitest";
 import { CATALOG, unitPrice } from "./catalog";
 
 describe("catalog", () => {
-  it("tiene los 3 productos con sus precios canónicos", () => {
+  it("tiene los productos con sus precios canónicos", () => {
     expect(CATALOG["recovery-mix"].price).toBe(999);
+    expect(CATALOG["recovery-mix-sachets"].price).toBe(640);
     expect(CATALOG["creatina"].price).toBe(549);
     expect(CATALOG["electrolitos"].price).toBe(599);
   });

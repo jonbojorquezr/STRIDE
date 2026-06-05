@@ -74,8 +74,8 @@ const DIVDATA: Record<DivisionId, DivEntry> = {
       price: 699,
       sub: { es: "Bolsa 1 kg (16 porciones) · también en sachets", en: "1 kg bag (16 servings) · also in sachets" },
       flavors: [
+        { es: "Chocolate", en: "Chocolate", color: "#7a4a32" },
         { es: "Vainilla", en: "Vanilla", color: "#caa85a" },
-        { es: "Cacao", en: "Cacao", color: "#7a4a32" },
       ],
     },
     benefits: {
