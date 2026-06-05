@@ -42,6 +42,22 @@
   }
 }
 
+/* ---------- FAQ (acordeón) ---------- */
+.faq-list { margin-top: 30px; border-top: 1px solid var(--line); }
+.faq-item { border-bottom: 1px solid var(--line); }
+.faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 4px; background: none; border: none; text-align: left; cursor: pointer; font-family: var(--font-display); font-stretch: 90%; font-size: clamp(17px, 2vw, 21px); letter-spacing: -.01em; color: var(--ink); transition: color .2s; }
+.faq-q:hover { color: var(--teal); }
+.faq-icon { position: relative; flex: 0 0 auto; width: 18px; height: 18px; }
+.faq-icon::before, .faq-icon::after { content: ""; position: absolute; background: var(--teal); border-radius: 2px; transition: transform .3s var(--ease), opacity .3s; }
+.faq-icon::before { left: 0; top: 8px; width: 18px; height: 2px; }
+.faq-icon::after { left: 8px; top: 0; width: 2px; height: 18px; }
+.faq-item.open .faq-icon::after { transform: scaleY(0); opacity: 0; }
+.faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .32s var(--ease); }
+.faq-item.open .faq-a { grid-template-rows: 1fr; }
+.faq-a > div { overflow: hidden; }
+.faq-a .lede { margin: 0 0 22px; max-width: 64ch; font-size: 15.5px; }
+@media (prefers-reduced-motion: reduce) { .faq-a { transition: none; } }
+
 /* ---------- Logo ---------- */
 .logo { display: inline-flex; align-items: center; gap: 9px; }
 .logo-img { height: 26px; width: auto; display: block; }

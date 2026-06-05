@@ -10,8 +10,10 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Mark } from "@/components/Brand";
 import { useReveal, CountUp } from "@/components/Reveal";
+import { Faq } from "@/components/Faq";
 import { ImageSlot } from "@/components/ImageSlot";
 import { IMG, DIV_IMG } from "@/lib/images";
+import { unitPrice } from "@/lib/catalog";
 
 function Hero() {
   const { t } = useStore();
@@ -221,7 +223,7 @@ function ProductFeature() {
               {t("Ver producto", "View product")} <span className="arrow">→</span>
             </Link>
             <span className="mono">
-              {t("desde", "from")} {money(637)}
+              {t("desde", "from")} {money(unitPrice("recovery-mix", "sub"))}
             </span>
           </div>
         </div>
@@ -322,27 +324,27 @@ function Community() {
   const QUOTES = [
     {
       q: {
-        es: "Al lunes mis piernas responden distinto. Es parte de mi rutina.",
-        en: "By Monday my legs respond differently. It's part of my routine.",
+        es: "Antes, después de una carrera larga, me sentía cansadísimo todo el día. Con Stride, mi cuerpo se recupera mucho más rápido y me siento con más energía.",
+        en: "After a long run I used to feel wiped out all day. With Stride my body recovers much faster and I feel more energized.",
       },
-      n: "Daniel H.",
-      r: { es: "Maratonista · CDMX", en: "Marathoner · Mexico City" },
+      n: "Braulio Macías",
+      r: { es: "Corredor · México", en: "Runner · Mexico" },
     },
     {
       q: {
-        es: "Por fin un recovery que no sabe a químico. El 3:2 hace lo que promete.",
-        en: "Finally a recovery that doesn't taste like chemicals. The 3:2 delivers.",
+        es: "Lo que más me gusta es que ya no siento tanta fatiga después de una carrera larga. Puedo entrenar sin esa sensación de cansancio extremo.",
+        en: "What I like most is that I no longer feel so much fatigue after a long run. I can train without that extreme tiredness.",
       },
-      n: "Mariana L.",
-      r: { es: "Triatleta · GDL", en: "Triathlete · Guadalajara" },
+      n: "Guillermo Armenta",
+      r: { es: "Ciudad de México", en: "Mexico City" },
     },
     {
       q: {
-        es: "Explican el porqué de cada ingrediente. Se siente hecho por gente que corre.",
-        en: "They explain the why behind every ingredient. Made by people who run.",
+        es: "Después de las carreras siempre sufría de calambres, pero desde que empecé con Stride Recovery mi cuerpo se siente más fuerte y ya no tengo esos problemas.",
+        en: "I always cramped after races, but since I started with Stride Recovery my body feels stronger and I don't have those problems anymore.",
       },
-      n: "Esteban R.",
-      r: { es: "Trail runner · MTY", en: "Trail runner · Monterrey" },
+      n: "Omar Gameros",
+      r: { es: "Monterrey, México", en: "Monterrey, Mexico" },
     },
   ];
   const [i, setI] = React.useState(0);
@@ -474,6 +476,7 @@ export default function HomeContent() {
         <ProductFeature />
         <Divisions />
         <Community />
+        <Faq />
         <Newsletter />
       </main>
       <Footer />
