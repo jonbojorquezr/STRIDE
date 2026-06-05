@@ -13,6 +13,7 @@ import { Mark } from "@/components/Brand";
 import { useReveal } from "@/components/Reveal";
 import { ImageSlot } from "@/components/ImageSlot";
 import { DIV_IMG } from "@/lib/images";
+import { unitPrice, type ProductKey } from "@/lib/catalog";
 
 export type { DivisionId };
 
@@ -193,6 +194,12 @@ const DIVDATA: Record<DivisionId, DivEntry> = {
   },
 };
 
+const DIV_KEY: Record<DivisionId, ProductKey> = {
+  recover: "recovery-mix",
+  endure: "creatina",
+  hydrate: "electrolitos",
+};
+
 function Toast({ show, children }: { show: boolean; children: React.ReactNode }) {
   return (
     <div className={"toast" + (show ? " show" : "")} role="status">
@@ -280,10 +287,11 @@ function DivProduct({ D, division }: { D: DivEntry; division: DivisionId }) {
   const [toast, setToast] = React.useState(false);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const f = D.product.flavors[flavor];
-  const unit = mode === "sub" ? Math.round(D.product.price * 0.85) : D.product.price;
+  const unit = unitPrice(DIV_KEY[division], mode);
   const add = () => {
     addToCart({
       id: D.product.id + "-" + flavor,
+      key: DIV_KEY[division],
       name: D.product.name,
       flavor: f[lang],
       mode,

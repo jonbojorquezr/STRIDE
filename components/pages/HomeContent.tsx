@@ -12,6 +12,7 @@ import { Mark } from "@/components/Brand";
 import { useReveal, CountUp } from "@/components/Reveal";
 import { ImageSlot } from "@/components/ImageSlot";
 import { IMG, DIV_IMG } from "@/lib/images";
+import { unitPrice } from "@/lib/catalog";
 
 function Hero() {
   const { t } = useStore();
@@ -221,7 +222,7 @@ function ProductFeature() {
               {t("Ver producto", "View product")} <span className="arrow">→</span>
             </Link>
             <span className="mono">
-              {t("desde", "from")} {money(637)}
+              {t("desde", "from")} {money(unitPrice("recovery-mix", "sub"))}
             </span>
           </div>
         </div>

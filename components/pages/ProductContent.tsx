@@ -12,14 +12,13 @@ import { Mark } from "@/components/Brand";
 import { useReveal } from "@/components/Reveal";
 import { ImageSlot } from "@/components/ImageSlot";
 import { IMG, DIV_IMG } from "@/lib/images";
+import { unitPrice } from "@/lib/catalog";
 
 const FLAVORS = [
   { id: "cacao", name: { es: "Cacao", en: "Cacao" }, color: "#7a4a32", tint: "#efe6df" },
   { id: "vainilla", name: { es: "Vainilla", en: "Vanilla" }, color: "#caa85a", tint: "#f3ecdb" },
   { id: "rojos", name: { es: "Frutos rojos", en: "Mixed berry" }, color: "#b14a63", tint: "#f4e2e7" },
 ];
-const BASE_PRICE = 749;
-
 function Toast({ show, children }: { show: boolean; children: React.ReactNode }) {
   return (
     <div className={"toast" + (show ? " show" : "")} role="status">
@@ -36,11 +35,12 @@ function PDP() {
   const [toast, setToast] = React.useState(false);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const f = FLAVORS[flavor];
-  const unit = mode === "sub" ? Math.round(BASE_PRICE * 0.85) : BASE_PRICE;
+  const unit = unitPrice("recovery-mix", mode);
 
   const add = () => {
     addToCart({
       id: "recovery-" + f.id,
+      key: "recovery-mix",
       name: "Recovery Mix",
       flavor: f.name[lang],
       mode,
