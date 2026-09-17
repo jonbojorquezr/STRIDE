@@ -69,6 +69,8 @@
 /* ---------- Lifestyle (full-bleed) ---------- */
 .dlife { position: relative; min-height: clamp(360px, 52vw, 560px); display: flex; align-items: flex-end; }
 .dlife-slot { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 0; background: color-mix(in srgb, var(--c) 22%, #0a1a22); }
+/* Reencuadre: la foto de Endure corta la cabeza con el center-crop default */
+.dlife--endure .dlife-slot img { object-position: center 15%; }
 .dlife-overlay { position: relative; width: 100%; padding: clamp(34px, 5vw, 72px) 0; background: linear-gradient(to top, rgba(0,17,30,.78), rgba(0,17,30,.05)); }
 .dlife-title { color: #fff; }
 .dlife-line { font-family: var(--font-mono); color: rgba(255,255,255,.85); letter-spacing: .04em; margin: 14px 0 0; font-size: clamp(13px, 1.3vw, 16px); }

@@ -400,7 +400,7 @@ function DivProduct({ D, division }: { D: DivEntry; division: DivisionId }) {
 function DivLifestyle({ D, division }: { D: DivEntry; division: DivisionId }) {
   const { lang } = useStore();
   return (
-    <section className="dlife">
+    <section className={"dlife dlife--" + division}>
       <ImageSlot
         className="dlife-slot"
         shape="rect"
