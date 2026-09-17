@@ -290,9 +290,12 @@ function Divisions() {
         </div>
         <div className="div-grid">
           {DIVS.map((d, i) => (
-            <article
+            /* Toda la tarjeta navega a la página de la división */
+            <Link
+              href={DIV_URL[d.id]}
               className="div-card reveal"
               key={d.id}
+              aria-label={"Stride " + d.name + " — " + d.tag[lang]}
               style={{ "--c": `var(${d.var})`, "--c-ink": `var(--${d.id}-ink)`, "--tint": `var(${d.tint})`, "--delay": `${i * 90}ms` } as React.CSSProperties}
             >
               <div className="div-photo">
@@ -308,11 +311,11 @@ function Divisions() {
                 <span className="mono div-mood">{d.mood[lang]}</span>
                 <h3 className="display">{d.tag[lang]}</h3>
                 <p className="lede">{d.d[lang]}</p>
-                <Link href={DIV_URL[d.id]} className="div-link">
+                <span className="div-link">
                   {t("Ver línea", "View line")} <span className="arrow">→</span>
-                </Link>
+                </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
