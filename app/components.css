@@ -69,8 +69,14 @@
 /* ---------- Nav ---------- */
 .nav { position: sticky; top: 0; z-index: 60; transition: background .35s var(--ease), border-color .35s, backdrop-filter .35s; border-bottom: 1px solid transparent; }
 .nav--solid { background: color-mix(in srgb, var(--paper) 80%, transparent); backdrop-filter: blur(16px) saturate(1.1); border-bottom-color: var(--line); }
-.nav--dark.nav--solid { background: color-mix(in srgb, var(--night) 78%, transparent); border-bottom-color: rgba(0,234,189,.16); }
-.nav-in { display: flex; align-items: center; gap: 22px; padding: 16px 0; }
+/* Barra principal en Azul Nocturno permanente (pedido 17-sep) */
+.nav--dark { background: var(--night); }
+.nav--dark.nav--solid { background: color-mix(in srgb, var(--night) 88%, transparent); backdrop-filter: blur(16px) saturate(1.1); border-bottom-color: rgba(0,234,189,.16); }
+.nav--dark .btn-primary { background: var(--aqua); color: var(--night); }
+.nav--dark .btn-primary:hover { box-shadow: 0 14px 36px -10px rgba(0,234,189,.45); }
+.nav--dark .lang button { color: #8fa6a5; }
+/* El gutter lateral: .nav-in pisaba el padding del .wrap y el logo quedaba al ras */
+.nav-in { display: flex; align-items: center; gap: 22px; padding: 16px var(--gutter); }
 .nav-links { display: flex; gap: 28px; margin-left: 14px; }
 .nav-links a { font-size: 14.5px; color: var(--ink-2); position: relative; padding: 12px 0; transition: color .2s; }
 .nav--dark .nav-links a { color: #a9c4c2; }
@@ -102,6 +108,8 @@
   .nav--dark ~ .nav-drawer, .nav--dark .nav-drawer { background: var(--night); }
   .nav-drawer.open { transform: none; }
   .nav-drawer a:not(.btn) { padding: 15px 0; font-family: var(--font-display); font-stretch: 85%; text-transform: uppercase; font-size: 22px; border-bottom: 1px solid var(--line); color: var(--ink); }
+  .nav--dark .nav-drawer a:not(.btn) { color: #eaf4f1; border-bottom-color: rgba(255,255,255,.08); }
+  .nav--dark .nav-drawer .btn-primary { background: var(--aqua); color: var(--night); }
   .nav-drawer .btn { margin-top: 16px; justify-content: center; }
 }
 

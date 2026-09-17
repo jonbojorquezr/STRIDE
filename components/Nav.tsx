@@ -5,7 +5,7 @@ import { useStore } from "@/lib/store";
 import { HOME_URL, PROD_URL } from "@/lib/routes";
 import { Logo, Mark } from "./Brand";
 
-export function Nav({ dark = false }: { dark?: boolean }) {
+export function Nav({ dark = true }: { dark?: boolean }) {
   const { t, lang, setLang, cartCount } = useStore();
   const [open, setOpen] = React.useState(false);
   const [cartOpen, setCartOpen] = React.useState(false);
