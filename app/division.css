@@ -14,10 +14,11 @@
 .dh-mood { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .dh-chip { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--c-ink); border: 1px solid color-mix(in srgb, var(--c) 35%, transparent); border-radius: 100px; padding: 7px 14px; background: color-mix(in srgb, var(--c) 7%, transparent); }
 
-/* Lockup oficial de división (MDIG p. 23): wordmark + subrótulo en color de línea */
-.dh-lockup { display: inline-flex; flex-direction: column; gap: 4px; margin-bottom: 20px; }
-.dh-lockup img { height: 30px; width: auto; }
-.dh-lockup-sub { align-self: flex-end; margin-right: 38px; font-size: 11px; font-weight: 700; letter-spacing: .38em; text-transform: uppercase; color: var(--c-ink); }
+/* Lockup oficial de división (MDIG p. 23): wordmark + subrótulo en color de línea.
+   align-items: flex-start es clave — con stretch el flex column deforma el logo. */
+.dh-lockup { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 5px; margin-bottom: 20px; }
+.dh-lockup img { height: 34px; width: auto; }
+.dh-lockup-sub { margin-left: 2px; font-size: 11px; font-weight: 700; letter-spacing: .34em; text-transform: uppercase; color: var(--c-ink); }
 
 /* Marquee de palabra repetida (patrón MDIG pp. 28/35) */
 .dmarquee { overflow: hidden; padding: 26px 0; border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); }
