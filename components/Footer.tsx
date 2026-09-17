@@ -27,7 +27,7 @@ export function Footer() {
       t("Soporte", "Support"),
       [
         [t("Envíos", "Shipping"), HOME_URL + "#faq"],
-        [t("Contacto", "Contact"), "https://www.instagram.com/strideforathletes/"],
+        [t("Contacto", "Contact"), "mailto:contacto@strideforathletes.com"],
       ],
     ],
   ];
@@ -54,7 +54,11 @@ export function Footer() {
                 <ul>
                   {items.map(([l, href]) => (
                     <li key={l}>
-                      {href.startsWith("#") ? <a href={href}>{l}</a> : <Link href={href}>{l}</Link>}
+                      {href.startsWith("/") ? (
+                        <Link href={href}>{l}</Link>
+                      ) : (
+                        <a href={href}>{l}</a>
+                      )}
                     </li>
                   ))}
                 </ul>

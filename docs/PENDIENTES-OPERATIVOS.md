@@ -35,16 +35,18 @@ prometer el descuento en campañas.
 
 ## 3. Dominio propio
 
-El sitio vive en `stride-black-tau.vercel.app`. Falta comprar/conectar un dominio de
-marca (definir a nombre de quién queda registrado). Al conectarlo, actualizar
-`metadataBase` en `app/layout.tsx` con el dominio nuevo.
+`strideforathletes.com` YA EXISTE y responde (sitio de marca de la agencia B7), con
+correo activo en Outlook (`contacto@strideforathletes.com`). Decisión pendiente:
+apuntar el dominio a esta tienda, o crear `shop.strideforathletes.com` hacia Vercel
+y dejar el sitio de marca donde está. Al conectarlo, actualizar `metadataBase` en
+`app/layout.tsx`. Averiguar quién administra el DNS (¿B7?).
 
 ## 4. Redes y contacto
 
-En el footer solo quedó Instagram (@strideforathletes, el handle impreso en la
-etiqueta del producto). Strava y TikTok se quitaron porque apuntaban a "#": hay que
-crear los perfiles y volverlos a agregar. "Contacto" apunta al DM de Instagram
-mientras no exista correo de marca; cambiarlo cuando haya dominio/correo propio.
+En el footer quedó Instagram (@strideforathletes, el handle impreso en la etiqueta
+del producto) y Contacto → `mailto:contacto@strideforathletes.com` (buzón real,
+MX en Outlook). Strava y TikTok se quitaron porque apuntaban a "#": crear los
+perfiles y volverlos a agregar. Confirmar quién monitorea el buzón de contacto.
 
 ## 5. Divisiones Endure e Hydrate
 

@@ -9,7 +9,7 @@ import { PROD_URL, DIV_URL } from "@/lib/routes";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Mark } from "@/components/Brand";
-import { useReveal, CountUp } from "@/components/Reveal";
+import { useReveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
 import { ImageSlot } from "@/components/ImageSlot";
 import { IMG, DIV_IMG } from "@/lib/images";
@@ -367,20 +367,8 @@ function Community() {
             src={IMG.athletePortrait}
             alt={t("Atleta Stride", "Stride athlete")}
           />
-          <div className="comm-stats">
-            <div>
-              <strong className="display">
-                <CountUp to={2400} suffix="+" />
-              </strong>
-              <span className="mono">{t("atletas en la lista", "athletes on the list")}</span>
-            </div>
-            <div>
-              <strong className="display">
-                <CountUp to={18} />
-              </strong>
-              <span className="mono">{t("ciudades de México", "cities in Mexico")}</span>
-            </div>
-          </div>
+          {/* Sin métricas de comunidad hasta tener números reales que mostrar
+              (el "2,400+ en la lista" era inventado, igual que las 132 reseñas). */}
         </div>
         <div className="comm-copy">
           <p className="eyebrow reveal">{t("La comunidad Stride", "The Stride community")}</p>
