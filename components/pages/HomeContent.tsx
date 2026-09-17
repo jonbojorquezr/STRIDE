@@ -142,7 +142,7 @@ function Science() {
     },
   ];
   return (
-    <section className="section science" id="ciencia">
+    <section className="section science dark" id="ciencia">
       <div className="wrap">
         <div className="sci-head">
           <p className="eyebrow reveal">{t("La ciencia, simple", "The science, simplified")}</p>

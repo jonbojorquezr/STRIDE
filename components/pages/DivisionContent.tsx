@@ -267,9 +267,9 @@ function DivHero({ D, division }: { D: DivEntry; division: DivisionId }) {
 function DivPhilosophy({ D }: { D: DivEntry }) {
   const { t, lang } = useStore();
   return (
-    <section className="section dphil" id="filosofia">
+    <section className="section dphil dark" id="filosofia">
       <div className="wrap">
-        <p className="eyebrow reveal" style={{ color: "var(--c-ink)" }}>
+        <p className="eyebrow reveal" style={{ color: "var(--c)" }}>
           {t("La filosofía", "The philosophy")}
         </p>
         <div className="dphil-grid">
