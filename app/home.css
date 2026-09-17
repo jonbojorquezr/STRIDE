@@ -89,9 +89,9 @@
 .quote-nav { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
 .quote-nav > button { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: #eaf4f1; transition: border-color .2s, color .2s; }
 .quote-nav > button:hover { border-color: var(--aqua); color: var(--aqua); }
-.dots { display: flex; gap: 8px; }
-.dots button { width: 8px; height: 8px; border-radius: 50%; border: none; background: rgba(255,255,255,.25); padding: 0; }
-.dots button.on { background: var(--aqua); width: 22px; border-radius: 100px; }
+.dots { display: flex; gap: 0; }
+.dots button { width: 24px; height: 24px; border-radius: 100px; border: none; background: rgba(255,255,255,.25); padding: 8px; background-clip: content-box; }
+.dots button.on { background: var(--aqua); background-clip: content-box; width: 38px; }
 @media (max-width: 880px) { .comm-in { grid-template-columns: 1fr; } .comm-visual { max-width: 440px; } }
 
 /* ---------- Newsletter ---------- */
