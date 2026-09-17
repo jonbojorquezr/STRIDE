@@ -35,16 +35,25 @@ prometer el descuento en campañas.
 
 ## 3. Dominio propio
 
-`strideforathletes.com` YA EXISTE y responde (sitio de marca de la agencia B7), con
-correo activo en Outlook (`contacto@strideforathletes.com`). Decisión pendiente:
-apuntar el dominio a esta tienda, o crear `shop.strideforathletes.com` hacia Vercel
-y dejar el sitio de marca donde está. Al conectarlo, actualizar `metadataBase` en
-`app/layout.tsx`. Averiguar quién administra el DNS (¿B7?).
+DECIDIDO (Alan, 17-sep-2026): el dominio canónico es **strideforathletes.com**
+(propio, hoy sirve el sitio de marca de B7; Instagram oficial @strideforathletes).
+`stride.mx` del manual MDIG quedó como legado y está parked; ignorarlo.
 
-OJO: el manual de marca (Stride-MDIG 2024) asume `stride.mx` (los artes dicen
-WWW.STRIDE.MX y las tarjetas usan correos `@stride.mx`), pero ese dominio está
-PARKED (redirige a un lander de registrador). Confirmar con B7/Lorena si stride.mx
-es de Stride; si sí, decidir cuál es el dominio canónico antes de redirigir.
+Alan está solicitando el acceso al dominio. Cuando llegue, conectar así:
+
+1. En Vercel (proyecto `stride`, cuenta del operador): Settings → Domains → agregar
+   `strideforathletes.com` (y `www`). Vercel indica los registros exactos.
+2. En el DNS del dominio: registro A de `@` → `76.76.21.21` y CNAME de `www` →
+   `cname.vercel-dns.com` (confirmar contra lo que Vercel muestre).
+3. ⚠️ NO TOCAR los registros MX (Outlook): el buzón `contacto@strideforathletes.com`
+   depende de ellos. Solo se cambian A/CNAME.
+4. Decidir destino del sitio de marca B7 (se pierde al apuntar el root a la tienda;
+   si se quiere conservar, moverlo a `marca.strideforathletes.com` o similar).
+5. En el código: actualizar `metadataBase` en `app/layout.tsx` a
+   `https://strideforathletes.com` (un solo cambio, ya está preparado para eso).
+6. Verificar: https + certificado, checkout de Stripe con el dominio nuevo
+   (success/cancel URLs se derivan del origin, se actualizan solas) y que el correo
+   siga llegando.
 
 ## 4. Redes y contacto
 
