@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Stride — Historia: 3 variantes</title>
+<style>
+  @font-face { font-family:'Config Condensed'; src:url('../../public/fonts/ConfigCondensed-ExtraBold.otf') format('opentype'); font-weight:800; }
+  @font-face { font-family:'Config Condensed'; src:url('../../public/fonts/ConfigCondensed-Bold.otf') format('opentype'); font-weight:700; }
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+  :root{ --aqua:#00EABD; --teal:#006666; --night:#00111E; --paper:#F4F5F2; --card:#fff;
+    --ink:#00111E; --ink2:#2c4042; --ink3:#5f7375; --line:rgba(0,17,30,.12);
+    --disp:'Config Condensed','Arial Narrow',sans-serif; --mono:'Space Mono',monospace; }
+  *{margin:0;box-sizing:border-box} body{font-family:system-ui,sans-serif;background:#ddd}
+  .label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;padding:18px 24px;background:#bbb;color:#333;text-transform:uppercase}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal)}
+  h2{font-family:var(--disp);font-weight:800;text-transform:uppercase;line-height:.92;letter-spacing:-.01em}
+  p{color:var(--ink2);line-height:1.55;font-size:15px}
+  .mono{font-family:var(--mono)}
+
+  /* ── VARIANTE A: editorial claro, split 60/40, timeline abajo ── */
+  .vA{background:var(--paper);color:var(--ink);padding:88px 64px}
+  .vA .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;max-width:1180px;margin:0 auto}
+  .vA h2{font-size:84px;margin:14px 0 22px}
+  .vA h2 em{font-style:normal;color:var(--teal)}
+  .vA .photo{aspect-ratio:4/5;border-radius:20px;background:url('../../public/img/athlete-portrait.jpg') center 20%/cover}
+  .vA .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1180px;margin:64px auto 0;border-top:1px solid var(--line)}
+  .vA .tl div{padding:20px 18px 0;border-left:1px solid var(--line)}
+  .vA .tl div:first-child{border-left:none;padding-left:0}
+  .vA .tl strong{font-family:var(--mono);font-size:13px;color:var(--teal)}
+  .vA .tl span{display:block;font-size:13.5px;color:var(--ink3);margin-top:6px}
+
+  /* ── VARIANTE B: dark night, número gigante, timeline lateral ── */
+  .vB{background:var(--night);color:#eaf4f1;padding:88px 64px}
+  .vB .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;max-width:1180px;margin:0 auto}
+  .vB h2{font-size:76px;color:#fff;margin:14px 0 20px}
+  .vB h2 em{font-style:normal;color:var(--aqua)}
+  .vB p{color:#a9c4c2}
+  .vB .big{font-family:var(--disp);font-weight:800;font-size:150px;line-height:1;color:var(--aqua)}
+  .vB .big small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:#a9c4c2;margin-top:8px;text-transform:uppercase}
+  .vB .tl{border-left:1.5px solid rgba(0,234,189,.35);margin-top:34px;padding-left:22px;display:flex;flex-direction:column;gap:18px}
+  .vB .tl li{list-style:none;position:relative}
+  .vB .tl li::before{content:"";position:absolute;left:-27.5px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--aqua)}
+  .vB .tl strong{font-family:var(--mono);font-size:13px;color:var(--aqua)}
+  .vB .tl span{display:block;font-size:13.5px;color:#a9c4c2;margin-top:3px}
+
+  /* ── VARIANTE C: poster full-bleed con overlay ── */
+  .vC{position:relative;min-height:640px;background:url('../../public/img/life-wide.jpg') center/cover;display:flex;align-items:flex-end}
+  .vC::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,17,30,.15) 30%,rgba(0,17,30,.88) 100%)}
+  .vC .in{position:relative;z-index:1;padding:64px;max-width:1180px;margin:0 auto;width:100%}
+  .vC .eyebrow{color:var(--aqua)}
+  .vC h2{font-size:96px;color:#fff;margin:12px 0 16px}
+  .vC p{color:#cfe3df;max-width:52ch}
+  .vC .chips{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+  .vC .chips span{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;padding:9px 16px;border:1px solid rgba(255,255,255,.35);border-radius:100px;color:#eaf4f1}
+</style>
+</head>
+<body>
+
+<div class="label">Variante A — Editorial claro, timeline de 4 hitos</div>
+<section class="vA" id="varA">
+  <div class="grid">
+    <div>
+      <p class="eyebrow">— Nuestra historia</p>
+      <h2>Nacimos<br><em>corriendo</em></h2>
+      <p>Stride nació en Guadalajara, entre entrenamientos de madrugada y carreras de fin
+      de semana. No encontrábamos una recuperación limpia, con evidencia y hecha aquí,
+      así que la formulamos nosotros.</p>
+      <p style="margin-top:14px">La proporción 3:2 de carbohidratos y proteína no es moda:
+      es lo que la ciencia recomienda para reponer glucógeno y reparar músculo. Sin
+      rellenos, sin letra chica, hecho en México.</p>
+    </div>
+    <div class="photo"></div>
+  </div>
+  <div class="tl">
+    <div><strong>2023</strong><span>Nace Stride en Guadalajara</span></div>
+    <div><strong>2024</strong><span>Recovery Mix sale a la calle</span></div>
+    <div><strong>2025</strong><span>Sachets para llevar</span></div>
+    <div><strong>2026</strong><span>Tres líneas: Recover · Endure · Hydrate</span></div>
+  </div>
+</section>
+
+<div class="label">Variante B — Dark con dato 3:2 gigante y timeline vertical</div>
+<section class="vB" id="varB">
+  <div class="grid">
+    <div>
+      <div class="big">3:2<small>La proporción que nos define</small></div>
+      <ul class="tl">
+        <li><strong>2023</strong><span>Nace Stride en Guadalajara</span></li>
+        <li><strong>2024</strong><span>Recovery Mix sale a la calle</span></li>
+        <li><strong>2025</strong><span>Sachets para llevar</span></li>
+        <li><strong>2026</strong><span>Recover · Endure · Hydrate</span></li>
+      </ul>
+    </div>
+    <div>
+      <p class="eyebrow" style="color:var(--aqua)">— Nuestra historia</p>
+      <h2>Hecho por<br>corredores,<br><em>en México</em></h2>
+      <p>Stride nació en Guadalajara, entre entrenamientos de madrugada y carreras de fin
+      de semana. No encontrábamos una recuperación limpia, con evidencia y hecha aquí,
+      así que la formulamos nosotros.</p>
+      <p style="margin-top:14px">Cada fórmula acompaña una etapa distinta de tu vida como
+      atleta. Mismo rigor, distinto propósito.</p>
+    </div>
+  </div>
+</section>
+
+<div class="label">Variante C — Poster full-bleed con overlay y chips</div>
+<section class="vC" id="varC">
+  <div class="in">
+    <p class="eyebrow">— Nuestra historia</p>
+    <h2>Nacimos corriendo</h2>
+    <p>De Guadalajara para todos los que entrenan de madrugada. Formulamos la
+    recuperación que no encontrábamos: 3:2, con evidencia, hecha en México.</p>
+    <div class="chips">
+      <span>2023 · GDL</span><span>2024 · Recovery Mix</span>
+      <span>2025 · Sachets</span><span>2026 · 3 líneas</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
