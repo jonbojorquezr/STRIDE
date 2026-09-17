@@ -5,8 +5,23 @@ Copia esto como prompt inicial en claude.ai/design (mismo flujo que SuniPet Méx
 ---
 
 Crea el design system de **Stride**, marca mexicana de suplementos deportivos para
-atletas de resistencia (running). Ya existe identidad aplicada en producto y sitio;
-el sistema debe FORMALIZARLA, no reinventarla.
+atletas de resistencia (running). Existe manual oficial (Stride-MDIG, Atemporal
+Studio 2024) aplicado en producto y sitio; el sistema debe EXTENDERLO a piezas
+digitales, no reinventarlo.
+
+**Canon del manual MDIG (obligatorio):**
+- Colores con nombre: Aqua Stride #00EABD (primario), Verde Sombra #006666, Azul
+  Nocturno #00111E, Off White #EBEBEB, y el Degradado oficial Aqua→Nocturno (único
+  gradiente permitido).
+- Eslogan "PERFORMANCE MADE SIMPLE." con "MADE SIMPLE." en aqua sobre nocturno.
+- Personalidad: innovadora, apasionada, mejora continua. Tono: cercano y confiable,
+  técnico accesible con evidencia; la marca es "un entrenador personal confiable".
+- Valores: educación, cercanía, rendimiento, innovación, inspiración.
+- User persona: "Daniel, el Atleta Ambicioso" (31, emprendedor, maratonista, valora
+  datos con enfoque práctico, busca comunidad).
+- Taglines de división: Recover "FIND YOUR CALM" (Meditación·Sabiduría·Zen), Endure
+  "OWN THE GAME" (Intelectual·Intenso·Durabilidad), Hydrate "REFRESH YOUR FLOW"
+  (Risa·Vitalidad·Fresco).
 
 **Identidad existente (respetar):**
 - Logo: wordmark "stride" en minúsculas + monograma de rayo/zancada (S estilizada).

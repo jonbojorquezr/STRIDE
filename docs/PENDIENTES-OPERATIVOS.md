@@ -41,6 +41,11 @@ apuntar el dominio a esta tienda, o crear `shop.strideforathletes.com` hacia Ver
 y dejar el sitio de marca donde está. Al conectarlo, actualizar `metadataBase` en
 `app/layout.tsx`. Averiguar quién administra el DNS (¿B7?).
 
+OJO: el manual de marca (Stride-MDIG 2024) asume `stride.mx` (los artes dicen
+WWW.STRIDE.MX y las tarjetas usan correos `@stride.mx`), pero ese dominio está
+PARKED (redirige a un lander de registrador). Confirmar con B7/Lorena si stride.mx
+es de Stride; si sí, decidir cuál es el dominio canónico antes de redirigir.
+
 ## 4. Redes y contacto
 
 En el footer quedó Instagram (@strideforathletes, el handle impreso en la etiqueta

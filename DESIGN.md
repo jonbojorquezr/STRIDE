@@ -1,7 +1,28 @@
 # Stride — Design System del sitio
 
-Fuente de verdad visual del sitio. Inferido del código y del manual de marca MDIG
-(design-review 17-sep-2026, score A−). Cualquier cambio visual debe respetar esto.
+Fuente de verdad visual del sitio, alineado al manual oficial **Stride-MDIG.pdf**
+(Atemporal Studio, 2024; en `G:\My Drive\1. Stride\4. Mercadotecnia\Atemporal\`).
+Cualquier cambio visual debe respetar esto.
+
+## Canon MDIG (nombres oficiales)
+
+- **Paleta madre:** Aqua Stride `#00EABD` (primario), Verde Sombra `#006666`,
+  Azul Nocturno `#00111E`, Off White `#EBEBEB` + **Degradado** oficial
+  Aqua→Nocturno (usado como firma: hairline superior del footer). Es el ÚNICO
+  gradiente permitido.
+- **Eslogan:** "Performance made simple." — tratamiento two-tone del manual:
+  "made simple." en Aqua sobre fondo Nocturno (aplicado en el footer).
+- **Personalidad:** innovadora, apasionada, mejora continua. **Tono:** cercano y
+  confiable, técnico accesible, respaldado en evidencia; "entrenador personal
+  confiable". **Valores:** educación, cercanía, rendimiento, innovación, inspiración.
+- **User persona:** "Daniel, el Atleta Ambicioso" (31, emprendedor, maratonista,
+  valora datos con enfoque práctico, busca comunidad).
+- **Taglines de división:** Recover "Find your calm" (Meditación·Sabiduría·Zen),
+  Endure "Own the game" (Intelectual·Intenso·Durabilidad), Hydrate "Refresh your
+  flow" (Risa·Vitalidad·Fresco).
+- ⚠️ El manual asume dominio `stride.mx` (hoy parked) y correos `@stride.mx`; lo
+  vivo es `strideforathletes.com`. Decisión de dominio pendiente (ver
+  docs/PENDIENTES-OPERATIVOS.md §3).
 
 ## Tipografía (3 familias, no agregar más)
 

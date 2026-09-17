@@ -130,7 +130,11 @@
 @keyframes btn-spin { to { transform: rotate(360deg); } }
 
 /* ---------- Footer ---------- */
-.footer { padding: clamp(54px, 7vw, 96px) 0 32px; }
+.footer { padding: clamp(54px, 7vw, 96px) 0 32px; position: relative; }
+/* Degradado oficial MDIG (Aqua Stride → Azul Nocturno) como firma de marca */
+.footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--aqua), var(--night)); }
+.footer-slogan { margin-top: 14px; font-size: 22px; text-transform: uppercase; font-weight: 800; font-stretch: 85%; color: #eaf4f1; letter-spacing: .01em; }
+.footer-slogan em { font-style: normal; color: var(--aqua); }
 .footer-top { display: grid; grid-template-columns: 1.3fr 2fr; gap: 50px; }
 .footer-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
 .footer-cols h4 { letter-spacing: .14em; color: var(--ink-3); margin: 2px 0 16px; font-weight: 400; }

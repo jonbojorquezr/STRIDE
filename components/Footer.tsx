@@ -42,9 +42,13 @@ export function Footer() {
             </Link>
             <p className="lede" style={{ maxWidth: "32ch", marginTop: 18 }}>
               {t(
-                "Suplementos mexicanos para atletas de resistencia. Performance made simple.",
-                "Mexican supplements for endurance athletes. Performance made simple."
+                "Suplementos mexicanos para atletas de resistencia.",
+                "Mexican supplements for endurance athletes."
               )}
+            </p>
+            {/* Eslogan con el tratamiento two-tone del manual MDIG (p. 19) */}
+            <p className="footer-slogan display">
+              Performance <em>made simple.</em>
             </p>
           </div>
           <div className="footer-cols">
