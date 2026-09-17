@@ -21,7 +21,7 @@
 .anno--1 { left: -4%; top: 14%; } .anno--1 strong { color: var(--teal); }
 .anno--2 { right: -5%; bottom: 18%; }
 .hero-lot { position: absolute; left: 14px; bottom: 12px; color: var(--ink-3); background: color-mix(in srgb, var(--card) 80%, transparent); padding: 4px 9px; border-radius: 6px; font-size: 10px; }
-.scroll-hint { position: absolute; right: var(--gutter); bottom: 8px; color: var(--ink-3); letter-spacing: .12em; }
+.scroll-hint { position: absolute; right: var(--gutter); bottom: 0; padding: 14px 8px; color: var(--ink-3); letter-spacing: .12em; }
 @media (max-width: 880px) {
   .hero-in { grid-template-columns: 1fr; }
   .hero-visual { order: -1; max-width: 380px; }
