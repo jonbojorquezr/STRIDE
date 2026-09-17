@@ -94,6 +94,22 @@
 .dots button.on { background: var(--aqua); background-clip: content-box; width: 38px; }
 @media (max-width: 880px) { .comm-in { grid-template-columns: 1fr; } .comm-visual { max-width: 440px; } }
 
+/* ---------- Historia ---------- */
+.hist-in { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 6vw, 72px); align-items: start; }
+.hist-big { font-size: clamp(96px, 12vw, 150px); line-height: 1; color: var(--aqua); font-weight: 800; }
+.hist-big small { display: block; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #a9c4c2; margin-top: 10px; font-weight: 400; }
+.hist-tl { list-style: none; margin: 34px 0 0; padding: 0 0 0 22px; border-left: 1.5px solid rgba(0, 234, 189, .35); display: flex; flex-direction: column; gap: 18px; }
+.hist-tl li { position: relative; }
+.hist-tl li::before { content: ""; position: absolute; left: -27.5px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--aqua); }
+.hist-tl strong { font-size: 13px; color: var(--aqua); }
+.hist-tl span { display: block; font-size: 13.5px; color: #a9c4c2; margin-top: 3px; }
+.hist-em { font-style: normal; color: var(--aqua); }
+.historia .lede { color: #a9c4c2; margin-top: 16px; max-width: 56ch; }
+@media (max-width: 900px) {
+  .hist-in { grid-template-columns: 1fr; }
+  .hist-data { order: 2; }
+}
+
 /* ---------- Newsletter ---------- */
 .news-card { text-align: center; border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(40px, 6vw, 72px); background: var(--paper-2); }
 .news-card > svg { margin: 0 auto; }

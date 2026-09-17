@@ -401,6 +401,57 @@ function Community() {
   );
 }
 
+function Historia() {
+  const { t, lang } = useStore();
+  // ⚠️ Hitos por validar con Alan/Jon antes de darlos por canon de marca.
+  const HITOS: { y: string; es: string; en: string }[] = [
+    { y: "2023", es: "Nace Stride en Guadalajara", en: "Stride is born in Guadalajara" },
+    { y: "2024", es: "Recovery Mix sale a la calle", en: "Recovery Mix hits the streets" },
+    { y: "2025", es: "Sachets para llevar", en: "Grab-and-go sachets" },
+    { y: "2026", es: "Recover · Endure · Hydrate", en: "Recover · Endure · Hydrate" },
+  ];
+  return (
+    <section className="section historia dark" id="historia">
+      <div className="wrap hist-in">
+        <div className="hist-data reveal">
+          <div className="hist-big display">
+            3:2
+            <small className="mono">{t("La proporción que nos define", "The ratio that defines us")}</small>
+          </div>
+          <ul className="hist-tl">
+            {HITOS.map((h) => (
+              <li key={h.y}>
+                <strong className="mono">{h.y}</strong>
+                <span>{lang === "es" ? h.es : h.en}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="hist-copy">
+          <p className="eyebrow reveal">{t("Nuestra historia", "Our story")}</p>
+          <h2 className="display h-lg reveal" style={{ "--delay": "60ms", marginTop: 14 } as React.CSSProperties}>
+            {t("Hecho por corredores,", "Made by runners,")}
+            <br />
+            <em className="hist-em">{t("en México", "in Mexico")}</em>
+          </h2>
+          <p className="lede reveal" style={{ "--delay": "110ms" } as React.CSSProperties}>
+            {t(
+              "Stride nació en Guadalajara, entre entrenamientos de madrugada y carreras de fin de semana. No encontrábamos una recuperación limpia, con evidencia y hecha aquí, así que la formulamos nosotros.",
+              "Stride was born in Guadalajara, between pre-dawn training and weekend races. We couldn't find a clean, evidence-based recovery made here, so we formulated it ourselves."
+            )}
+          </p>
+          <p className="lede reveal" style={{ "--delay": "150ms" } as React.CSSProperties}>
+            {t(
+              "Cada fórmula acompaña una etapa distinta de tu vida como atleta. Mismo rigor, distinto propósito.",
+              "Each formula meets a different stage of your athletic life. Same rigor, different purpose."
+            )}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Newsletter() {
   const { t } = useStore();
   const [email, setEmail] = React.useState("");
@@ -465,6 +516,7 @@ export default function HomeContent() {
         <ProductFeature />
         <Divisions />
         <Community />
+        <Historia />
         <Faq />
         <Newsletter />
       </main>

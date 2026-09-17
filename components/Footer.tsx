@@ -18,7 +18,7 @@ export function Footer() {
     [
       t("Marca", "Brand"),
       [
-        [t("Historia", "Story"), HOME_URL],
+        [t("Historia", "Story"), HOME_URL + "#historia"],
         [t("Ciencia", "Science"), HOME_URL + "#ciencia"],
         [t("Comunidad", "Community"), HOME_URL + "#comunidad"],
       ],
