@@ -39,21 +39,35 @@ DECIDIDO (Alan, 17-sep-2026): el dominio canónico es **strideforathletes.com**
 (propio, hoy sirve el sitio de marca de B7; Instagram oficial @strideforathletes).
 `stride.mx` del manual MDIG quedó como legado y está parked; ignorarlo.
 
-Alan está solicitando el acceso al dominio. Cuando llegue, conectar así:
+DATO CLAVE: lo que hoy sirve strideforathletes.com es una TIENDA SHOPIFY
+(IP 23.227.38.32 + headers de Shopify, detrás de Cloudflare), no un sitio estático.
+Es el único canal propio que puede cobrar dinero real mientras la tienda Vercel
+siga en Stripe TEST.
 
-1. En Vercel (proyecto `stride`, cuenta del operador): Settings → Domains → agregar
-   `strideforathletes.com` (y `www`). Vercel indica los registros exactos.
-2. En el DNS del dominio: registro A de `@` → `76.76.21.21` y CNAME de `www` →
-   `cname.vercel-dns.com` (confirmar contra lo que Vercel muestre).
-3. ⚠️ NO TOCAR los registros MX (Outlook): el buzón `contacto@strideforathletes.com`
+DECIDIDO (Alan): el Shopify actual se CONSERVA en un subdominio por si se quiere
+en el futuro. Propuesta: `shopify.strideforathletes.com` (el nombre es cambiable).
+
+Secuencia segura del switch (cuando llegue el acceso al DNS):
+
+0. ⚠️ PRERREQUISITO: la tienda Vercel debe cobrar real ANTES del switch (cuenta
+   Stripe live del operador con `sk_live` en las env vars de Vercel). Si el root se
+   apunta a Vercel con Stripe en TEST, el dominio deja de vender.
+1. En Shopify admin (Settings → Domains): cambiar el dominio conectado a
+   `shopify.strideforathletes.com`; en el DNS, CNAME de `shopify` →
+   `shops.myshopify.com` (confirmar destino exacto en el admin de Shopify).
+2. En Vercel (proyecto `stride`, cuenta del operador): Settings → Domains → agregar
+   `strideforathletes.com` y `www`. Vercel indica los registros exactos.
+3. En el DNS: A de `@` → `76.76.21.21` y CNAME de `www` → `cname.vercel-dns.com`
+   (confirmar contra lo que Vercel muestre). Ojo con Cloudflare: si el DNS vive ahí,
+   crear los registros en modo "DNS only" (nube gris) para no meter el proxy delante
+   de Vercel.
+4. ⚠️ NO TOCAR los registros MX (Outlook): el buzón `contacto@strideforathletes.com`
    depende de ellos. Solo se cambian A/CNAME.
-4. Decidir destino del sitio de marca B7 (se pierde al apuntar el root a la tienda;
-   si se quiere conservar, moverlo a `marca.strideforathletes.com` o similar).
 5. En el código: actualizar `metadataBase` en `app/layout.tsx` a
-   `https://strideforathletes.com` (un solo cambio, ya está preparado para eso).
-6. Verificar: https + certificado, checkout de Stripe con el dominio nuevo
-   (success/cancel URLs se derivan del origin, se actualizan solas) y que el correo
-   siga llegando.
+   `https://strideforathletes.com` (un solo cambio, ya está preparado).
+6. Verificar: https + certificado en root y subdominio, el Shopify respondiendo en
+   su subdominio, checkout de Stripe real con el dominio nuevo (success/cancel URLs
+   se derivan del origin, se actualizan solas) y que el correo siga llegando.
 
 ## 4. Redes y contacto
 
