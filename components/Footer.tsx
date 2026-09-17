@@ -26,8 +26,8 @@ export function Footer() {
     [
       t("Soporte", "Support"),
       [
-        [t("Envíos", "Shipping"), "#"],
-        [t("Contacto", "Contact"), "#"],
+        [t("Envíos", "Shipping"), HOME_URL + "#faq"],
+        [t("Contacto", "Contact"), "https://www.instagram.com/strideforathletes/"],
       ],
     ],
   ];
@@ -63,11 +63,12 @@ export function Footer() {
             <div>
               <h4 className="mono">{t("Síguenos", "Follow")}</h4>
               <ul>
-                {["Instagram", "Strava", "TikTok"].map((s) => (
-                  <li key={s}>
-                    <a href="#">{s}</a>
-                  </li>
-                ))}
+                {/* Strava/TikTok vuelven cuando existan los perfiles; links muertos restan confianza */}
+                <li>
+                  <a href="https://www.instagram.com/strideforathletes/" target="_blank" rel="noopener noreferrer">
+                    Instagram
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

@@ -39,7 +39,14 @@ El sitio vive en `stride-black-tau.vercel.app`. Falta comprar/conectar un domini
 marca (definir a nombre de quién queda registrado). Al conectarlo, actualizar
 `metadataBase` en `app/layout.tsx` con el dominio nuevo.
 
-## 4. Divisiones Endure e Hydrate
+## 4. Redes y contacto
+
+En el footer solo quedó Instagram (@strideforathletes, el handle impreso en la
+etiqueta del producto). Strava y TikTok se quitaron porque apuntaban a "#": hay que
+crear los perfiles y volverlos a agregar. "Contacto" apunta al DM de Instagram
+mientras no exista correo de marca; cambiarlo cuando haya dominio/correo propio.
+
+## 5. Divisiones Endure e Hydrate
 
 Sus páginas SÍ venden (Creatina $549, Electrolitos $599, definidos en
 `lib/catalog.ts`). Confirmar contra el inventario físico que hay stock y que esos
