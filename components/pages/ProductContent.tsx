@@ -406,8 +406,8 @@ function Reviews() {
 
 function Related() {
   const { t, lang } = useStore();
+  // Esta página ES Recovery Mix (línea Recover): recomendar solo las otras dos.
   const items = [
-    { id: "recover" as const, name: "Recover", c: "--recover", tint: "--recover-tint", d: { es: "Recovery Mix · 1 kg y sachets", en: "Recovery Mix · 1 kg & sachets" } },
     { id: "endure" as const, name: "Endure", c: "--endure", tint: "--endure-tint", d: { es: "Creatina monohidratada", en: "Creatine monohydrate" } },
     { id: "hydrate" as const, name: "Hydrate", c: "--hydrate", tint: "--hydrate-tint", d: { es: "Electrolitos sin azúcar", en: "Sugar-free electrolytes" } },
   ];
