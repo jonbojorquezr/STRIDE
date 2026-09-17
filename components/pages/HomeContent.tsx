@@ -65,6 +65,7 @@ function Hero() {
               className="hero-slot"
               shape="rounded"
               radius={20}
+              eager
               src={IMG.recoveryFront}
               alt={t("Stride Recovery Mix", "Stride Recovery Mix")}
             />

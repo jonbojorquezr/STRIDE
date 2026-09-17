@@ -14,6 +14,7 @@ export function ImageSlot({
   placeholder = "",
   fit = "cover",
   style,
+  eager = false,
 }: {
   className?: string;
   shape?: "rect" | "rounded" | "circle" | "pill";
@@ -23,6 +24,7 @@ export function ImageSlot({
   placeholder?: string;
   fit?: "cover" | "contain" | "fill";
   style?: React.CSSProperties;
+  eager?: boolean;
 }) {
   const borderRadius =
     shape === "circle"
@@ -41,7 +43,13 @@ export function ImageSlot({
     >
       {src ? (
         /* eslint-disable-next-line @next/next/no-img-element */
-        <img src={src} alt={alt} style={{ objectFit: fit, borderRadius }} />
+        <img
+          src={src}
+          alt={alt}
+          loading={eager ? "eager" : "lazy"}
+          decoding="async"
+          style={{ objectFit: fit, borderRadius }}
+        />
       ) : (
         <span className="img-slot-ph mono">{placeholder}</span>
       )}

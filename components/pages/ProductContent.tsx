@@ -70,6 +70,7 @@ function PDP() {
               className="gmain-slot"
               shape="rounded"
               radius={20}
+              eager
               src={p.img}
               alt={"Recovery Mix " + p.name[lang] + " " + f.name[lang]}
             />

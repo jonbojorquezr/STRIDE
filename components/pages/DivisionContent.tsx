@@ -245,6 +245,7 @@ function DivHero({ D, division }: { D: DivEntry; division: DivisionId }) {
               className="dh-slot"
               shape="rounded"
               radius={22}
+              eager
               src={DIV_IMG[division].hero}
               alt={"Stride " + D.name}
             />
