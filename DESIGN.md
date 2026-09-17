@@ -12,6 +12,13 @@ Cualquier cambio visual debe respetar esto.
   gradiente permitido.
 - **Eslogan:** "Performance made simple." — tratamiento two-tone del manual:
   "made simple." en Aqua sobre fondo Nocturno (aplicado en el footer).
+- **CTA oficial (p. 16):** pill con degradado Aqua→Nocturno y texto blanco
+  (`.btn-accent`). El arranque se profundiza a `#00D9B1` + text-shadow para
+  legibilidad; decisión consciente de Alan priorizando fidelidad al manual.
+- **Lockup de división (p. 23):** wordmark + subrótulo de línea en su color
+  (`.dh-lockup`, en los heros de /recover /endure /hydrate).
+- **Marquee de palabra repetida (pp. 28/35):** cinta con el nombre de la división
+  alternando sólido/outline (`.dmarquee`), se pausa con prefers-reduced-motion.
 - **Personalidad:** innovadora, apasionada, mejora continua. **Tono:** cercano y
   confiable, técnico accesible, respaldado en evidencia; "entrenador personal
   confiable". **Valores:** educación, cercanía, rendimiento, innovación, inspiración.
