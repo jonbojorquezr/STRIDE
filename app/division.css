@@ -13,6 +13,22 @@
 .dh-title { margin-top: 18px; }
 .dh-mood { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .dh-chip { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--c-ink); border: 1px solid color-mix(in srgb, var(--c) 35%, transparent); border-radius: 100px; padding: 7px 14px; background: color-mix(in srgb, var(--c) 7%, transparent); }
+
+/* Lockup oficial de división (MDIG p. 23): wordmark + subrótulo en color de línea */
+.dh-lockup { display: inline-flex; flex-direction: column; gap: 4px; margin-bottom: 20px; }
+.dh-lockup img { height: 30px; width: auto; }
+.dh-lockup-sub { align-self: flex-end; margin-right: 38px; font-size: 11px; font-weight: 700; letter-spacing: .38em; text-transform: uppercase; color: var(--c-ink); }
+
+/* Marquee de palabra repetida (patrón MDIG pp. 28/35) */
+.dmarquee { overflow: hidden; padding: 26px 0; border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); }
+.dmarquee-track { display: flex; width: max-content; }
+.dmarquee-group { display: flex; gap: 44px; padding-right: 44px; }
+.dmarquee span { font-family: var(--font-display); font-weight: 800; font-stretch: 84%; text-transform: uppercase; font-size: clamp(44px, 6vw, 72px); line-height: 1; white-space: nowrap; color: color-mix(in srgb, var(--c) 32%, transparent); }
+.dmarquee span.outline { color: transparent; -webkit-text-stroke: 1.5px color-mix(in srgb, var(--c) 45%, transparent); }
+@media (prefers-reduced-motion: no-preference) {
+  .dmarquee-track { animation: dmarquee 30s linear infinite; }
+}
+@keyframes dmarquee { to { transform: translateX(-50%); } }
 .dh-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
 .dh-visual { position: relative; }
 .dh-frame { position: relative; aspect-ratio: 4/5; }

@@ -214,8 +214,14 @@ function DivHero({ D, division }: { D: DivEntry; division: DivisionId }) {
     <section className="dh">
       <div className="wrap dh-in">
         <div className="dh-copy">
+          {/* Lockup oficial de división (manual MDIG p. 23) */}
+          <div className="dh-lockup reveal">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logos/stride-logo.png" alt="Stride" />
+            <span className="dh-lockup-sub">{D.name}</span>
+          </div>
           <p className="eyebrow reveal" style={{ color: "var(--c-ink)" }}>
-            Stride · {D.name} — {D.kicker[lang]}
+            {D.kicker[lang]}
           </p>
           <h1 className="display h-xl dh-title reveal" style={{ "--delay": "60ms" } as React.CSSProperties}>
             {D.tagline[lang]}
@@ -459,6 +465,26 @@ function DivCross({ current }: { current: DivisionId }) {
   );
 }
 
+/* Palabra repetida como elemento gráfico, patrón de los artes MDIG (pp. 28/35). */
+function DivMarquee({ name }: { name: string }) {
+  const words = Array.from({ length: 10 });
+  return (
+    <div className="dmarquee" aria-hidden="true">
+      <div className="dmarquee-track">
+        {[0, 1].map((k) => (
+          <div className="dmarquee-group" key={k}>
+            {words.map((_, i) => (
+              <span key={i} className={i % 2 ? "outline" : ""}>
+                {name}
+              </span>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function DivisionContent({ division }: { division: DivisionId }) {
   useReveal();
   const D = DIVDATA[division];
@@ -478,6 +504,7 @@ export default function DivisionContent({ division }: { division: DivisionId }) 
       <main>
         <DivHero D={D} division={division} />
         <DivPhilosophy D={D} />
+        <DivMarquee name={D.name} />
         <DivProduct D={D} division={division} />
         <DivLifestyle D={D} division={division} />
         <DivCross current={division} />
