@@ -12,7 +12,7 @@ import { Mark } from "@/components/Brand";
 import { useReveal } from "@/components/Reveal";
 import { ImageSlot } from "@/components/ImageSlot";
 import { IMG, DIV_IMG } from "@/lib/images";
-import { unitPrice } from "@/lib/catalog";
+import { unitPrice, SUBSCRIPTIONS_ENABLED } from "@/lib/catalog";
 
 const FLAVORS = [
   { id: "chocolate", name: { es: "Chocolate", en: "Chocolate" }, color: "#7a4a32", tint: "#efe6df" },
@@ -35,7 +35,7 @@ function PDP() {
   const { t, lang, money, addToCart, cartCount } = useStore();
   const [flavor, setFlavor] = React.useState(0);
   const [pres, setPres] = React.useState(0);
-  const [mode, setMode] = React.useState<"sub" | "once">("sub");
+  const [mode, setMode] = React.useState<"sub" | "once">("once");
   const [qty, setQty] = React.useState(1);
   const [toast, setToast] = React.useState(false);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -88,9 +88,6 @@ function PDP() {
             {t("Inicio", "Home")} / {t("Tienda", "Shop")} / Recovery Mix
           </Link>
           <h1 className="display h-md pdp-title">Recovery Mix</h1>
-          <div className="pdp-rating mono">
-            ★★★★★ <span>4.9 — 132 {t("reseñas", "reviews")}</span>
-          </div>
           <p className="lede pdp-desc">
             {t(
               "Mezcla post-entrenamiento con proporción 3:2 de carbohidratos y proteína para reponer glucógeno y reparar fibra muscular. Se disuelve limpio.",
@@ -137,26 +134,28 @@ function PDP() {
             </div>
           </div>
 
-          <div className="opt">
-            <span className="opt-label mono">{t("Plan", "Plan")}</span>
-            <div className="mode-row">
-              <button className={"mode" + (mode === "sub" ? " on" : "")} onClick={() => setMode("sub")}>
-                <span className="mode-top">
-                  <strong>{t("Suscripción", "Subscribe")}</strong>
-                  <em className="save">-15%</em>
-                </span>
-                <span className="mode-sub mono">
-                  {t("Cada 30 días · cancela cuando quieras", "Every 30 days · cancel anytime")}
-                </span>
-              </button>
-              <button className={"mode" + (mode === "once" ? " on" : "")} onClick={() => setMode("once")}>
-                <span className="mode-top">
-                  <strong>{t("Compra única", "One-time")}</strong>
-                </span>
-                <span className="mode-sub mono">{t("Sin compromiso", "No commitment")}</span>
-              </button>
+          {SUBSCRIPTIONS_ENABLED && (
+            <div className="opt">
+              <span className="opt-label mono">{t("Plan", "Plan")}</span>
+              <div className="mode-row">
+                <button className={"mode" + (mode === "sub" ? " on" : "")} onClick={() => setMode("sub")}>
+                  <span className="mode-top">
+                    <strong>{t("Suscripción", "Subscribe")}</strong>
+                    <em className="save">-15%</em>
+                  </span>
+                  <span className="mode-sub mono">
+                    {t("Cada 30 días · cancela cuando quieras", "Every 30 days · cancel anytime")}
+                  </span>
+                </button>
+                <button className={"mode" + (mode === "once" ? " on" : "")} onClick={() => setMode("once")}>
+                  <span className="mode-top">
+                    <strong>{t("Compra única", "One-time")}</strong>
+                  </span>
+                  <span className="mode-sub mono">{t("Sin compromiso", "No commitment")}</span>
+                </button>
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="buy-row">
             <div className="stepper">
@@ -385,16 +384,12 @@ function Reviews() {
         <div className="rev-head">
           <p className="eyebrow reveal">{t("Reseñas", "Reviews")}</p>
           <h2 className="display h-lg reveal" style={{ "--delay": "60ms", marginTop: 12 } as React.CSSProperties}>
-            4.9 / 5
+            {t("Lo que dicen los corredores", "What runners say")}
           </h2>
-          <p className="mono reveal" style={{ "--delay": "100ms" } as React.CSSProperties}>
-            {t("132 reseñas verificadas", "132 verified reviews")}
-          </p>
         </div>
         <div className="rev-grid">
           {R.map((rv, i) => (
             <article className="rev-card reveal" key={rv.n} style={{ "--delay": `${i * 80}ms` } as React.CSSProperties}>
-              <div className="rev-stars">★★★★★</div>
               <p>&quot;{rv.q[lang]}&quot;</p>
               <div className="rev-by">
                 <strong>{rv.n}</strong>

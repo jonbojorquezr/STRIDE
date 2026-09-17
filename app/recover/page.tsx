@@ -6,6 +6,15 @@ export const metadata: Metadata = {
   title: "Stride — Recover",
   description:
     "Recover: Recovery Mix con proporción 3:2 de carbohidratos y proteína, 18 aminoácidos y 16 vitaminas y minerales. Encuentra tu calma, recupera tu fuerza.",
+  openGraph: {
+    title: "Stride — Recover",
+    description:
+      "Recovery Mix con proporción 3:2 de carbohidratos y proteína, 18 aminoácidos y 16 vitaminas y minerales.",
+    siteName: "Stride",
+    locale: "es_MX",
+    type: "website",
+    images: ["/img/life-recover.jpg"],
+  },
 };
 
 export default function Page() {

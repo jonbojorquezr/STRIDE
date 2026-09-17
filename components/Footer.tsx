@@ -27,7 +27,6 @@ export function Footer() {
       t("Soporte", "Support"),
       [
         [t("Envíos", "Shipping"), "#"],
-        [t("Suscripción", "Subscription"), "#"],
         [t("Contacto", "Contact"), "#"],
       ],
     ],

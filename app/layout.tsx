@@ -6,9 +6,11 @@ import "./globals.css";
 import { StoreProvider } from "@/lib/store";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://stride-black-tau.vercel.app"),
   title: "Stride — Running Recovery · Hecho en México",
   description:
     "Stride: recuperación para atletas de resistencia. La fórmula 3:2 de carbohidratos y proteína, respaldada por la ciencia. Hecho en México.",
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({

@@ -1,6 +1,12 @@
 /* Catálogo canónico: única fuente de verdad de productos y precios (MXN). */
 export const SUB_DISCOUNT = 0.15;
 
+// Oculta la opción de suscripción en toda la tienda: el API cobra siempre pago
+// único (mode: "payment"), así que ofrecer "cada 30 días" sería una promesa
+// falsa. Reactivar cuando Stripe live tenga precios recurrentes; ver
+// docs/PENDIENTES-OPERATIVOS.md §1.
+export const SUBSCRIPTIONS_ENABLED = false;
+
 export type ProductKey =
   | "recovery-mix"
   | "recovery-mix-sachets"

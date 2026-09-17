@@ -126,6 +126,9 @@
 .cart-total { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px; }
 .cart-total strong { font-family: var(--font-display); font-stretch: 80%; font-size: 26px; }
 
+.btn-spinner { display: inline-block; width: 14px; height: 14px; margin-right: 8px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: btn-spin .7s linear infinite; vertical-align: -2px; }
+@keyframes btn-spin { to { transform: rotate(360deg); } }
+
 /* ---------- Footer ---------- */
 .footer { padding: clamp(54px, 7vw, 96px) 0 32px; }
 .footer-top { display: grid; grid-template-columns: 1.3fr 2fr; gap: 50px; }

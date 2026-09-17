@@ -164,7 +164,14 @@ function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
                 onClick={checkout}
                 disabled={loading}
               >
-                {loading ? t("Redirigiendo…", "Redirecting…") : t("Finalizar compra", "Checkout")}
+                {loading ? (
+                  <>
+                    <span className="btn-spinner" aria-hidden="true" />
+                    {t("Redirigiendo…", "Redirecting…")}
+                  </>
+                ) : (
+                  t("Finalizar compra", "Checkout")
+                )}
               </button>
               {error && (
                 <p className="mono" style={{ color: "#d23", textAlign: "center", marginTop: 10 }}>

@@ -13,7 +13,7 @@ import { Mark } from "@/components/Brand";
 import { useReveal } from "@/components/Reveal";
 import { ImageSlot } from "@/components/ImageSlot";
 import { DIV_IMG } from "@/lib/images";
-import { unitPrice, type ProductKey } from "@/lib/catalog";
+import { unitPrice, SUBSCRIPTIONS_ENABLED, type ProductKey } from "@/lib/catalog";
 
 export type { DivisionId };
 
@@ -282,7 +282,7 @@ function DivPhilosophy({ D }: { D: DivEntry }) {
 function DivProduct({ D, division }: { D: DivEntry; division: DivisionId }) {
   const { t, lang, money, addToCart, cartCount } = useStore();
   const [flavor, setFlavor] = React.useState(0);
-  const [mode, setMode] = React.useState<"sub" | "once">("sub");
+  const [mode, setMode] = React.useState<"sub" | "once">("once");
   const [qty, setQty] = React.useState(1);
   const [toast, setToast] = React.useState(false);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -358,23 +358,25 @@ function DivProduct({ D, division }: { D: DivEntry; division: DivisionId }) {
               ))}
             </div>
           </div>
-          <div className="mode-row">
-            <button className={"mode" + (mode === "sub" ? " on" : "")} onClick={() => setMode("sub")}>
-              <span className="mode-top">
-                <strong>{t("Suscripción", "Subscribe")}</strong>
-                <em className="save" style={{ background: "var(--c-ink)", color: "#fff" }}>
-                  -15%
-                </em>
-              </span>
-              <span className="mode-sub mono">{t("Cada 30 días", "Every 30 days")}</span>
-            </button>
-            <button className={"mode" + (mode === "once" ? " on" : "")} onClick={() => setMode("once")}>
-              <span className="mode-top">
-                <strong>{t("Compra única", "One-time")}</strong>
-              </span>
-              <span className="mode-sub mono">{t("Sin compromiso", "No commitment")}</span>
-            </button>
-          </div>
+          {SUBSCRIPTIONS_ENABLED && (
+            <div className="mode-row">
+              <button className={"mode" + (mode === "sub" ? " on" : "")} onClick={() => setMode("sub")}>
+                <span className="mode-top">
+                  <strong>{t("Suscripción", "Subscribe")}</strong>
+                  <em className="save" style={{ background: "var(--c-ink)", color: "#fff" }}>
+                    -15%
+                  </em>
+                </span>
+                <span className="mode-sub mono">{t("Cada 30 días", "Every 30 days")}</span>
+              </button>
+              <button className={"mode" + (mode === "once" ? " on" : "")} onClick={() => setMode("once")}>
+                <span className="mode-top">
+                  <strong>{t("Compra única", "One-time")}</strong>
+                </span>
+                <span className="mode-sub mono">{t("Sin compromiso", "No commitment")}</span>
+              </button>
+            </div>
+          )}
           <div className="buy-row">
             <div className="stepper">
               <button onClick={() => setQty((q) => Math.max(1, q - 1))}>–</button>
