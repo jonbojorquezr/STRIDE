@@ -36,6 +36,7 @@ function ShopCatalog() {
       image: IMG.recoveryFront,
       color: "var(--recover)",
     },
+    {
       id: "creatina",
       name: "Creatina",
       detail: { es: "350 g · 70 porciones", en: "350 g · 70 servings" },
