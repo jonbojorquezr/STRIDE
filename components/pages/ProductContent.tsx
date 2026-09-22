@@ -12,7 +12,7 @@ import { Mark } from "@/components/Brand";
 import { useReveal } from "@/components/Reveal";
 import { ImageSlot } from "@/components/ImageSlot";
 import { IMG, DIV_IMG } from "@/lib/images";
-import { unitPrice, SUBSCRIPTIONS_ENABLED } from "@/lib/catalog";
+import { CATALOG, unitPrice, SUBSCRIPTIONS_ENABLED } from "@/lib/catalog";
 
 const FLAVORS = [
   { id: "chocolate", name: { es: "Chocolate", en: "Chocolate" }, color: "#7a4a32", tint: "#efe6df" },
@@ -23,6 +23,81 @@ const PRESENTATIONS = [
   { id: "bolsa", key: "recovery-mix" as const, name: { es: "Bolsa 1 kg", en: "1 kg bag" }, note: { es: "16 porciones", en: "16 servings" }, img: IMG.recoveryFront },
   { id: "sachets", key: "recovery-mix-sachets" as const, name: { es: "Caja de sachets", en: "Sachet box" }, note: { es: "para llevar", en: "grab & go" }, img: IMG.recoverySachets },
 ];
+
+function ShopCatalog() {
+  const { t, lang, money } = useStore();
+  const products = [
+    {
+      id: "recovery-mix",
+      name: "Recovery Mix",
+      detail: { es: "Bolsa 1 kg · 16 porciones", en: "1 kg bag · 16 servings" },
+      price: CATALOG["recovery-mix"].price,
+      href: "#producto",
+      image: IMG.recoveryFront,
+      color: "var(--recover)",
+    },
+      id: "creatina",
+      name: "Creatina",
+      detail: { es: "350 g · 70 porciones", en: "350 g · 70 servings" },
+      price: CATALOG.creatina.price,
+      href: DIV_URL.endure,
+      image: DIV_IMG.endure.product,
+      color: "var(--endure)",
+    },
+    {
+      id: "electrolitos",
+      name: "Electrolitos",
+      detail: { es: "180 g · sin azúcar", en: "180 g · sugar-free" },
+      price: CATALOG.electrolitos.price,
+      href: DIV_URL.hydrate,
+      image: DIV_IMG.hydrate.product,
+      color: "var(--hydrate)",
+    },
+  ];
+
+  return (
+    <section className="shop-catalog">
+      <div className="wrap">
+        <div className="shop-catalog-head">
+          <div>
+            <p className="eyebrow reveal">{t("Tienda", "Shop")}</p>
+            <h1 className="display h-lg reveal" style={{ "--delay": "60ms" } as React.CSSProperties}>
+              {t("Todo para seguir", "Everything to keep")}
+              <br />
+              <span>{t("en movimiento", "moving")}</span>
+            </h1>
+          </div>
+          <p className="lede reveal" style={{ "--delay": "120ms" } as React.CSSProperties}>
+            {t("Fórmulas simples para recuperar, resistir e hidratarte.", "Simple formulas to recover, endure and stay hydrated.")}
+          </p>
+        </div>
+        <div className="shop-grid">
+          {products.map((product, index) => (
+            <Link
+              key={product.id}
+              href={product.href}
+              className="shop-card reveal"
+              style={{ "--product-color": product.color, "--delay": `${index * 70}ms` } as React.CSSProperties}
+            >
+              <div className="shop-card-image">
+                <ImageSlot className="shop-card-slot" shape="rounded" radius={16} src={product.image} alt={product.name} />
+                <span className="shop-card-arrow">→</span>
+              </div>
+              <div className="shop-card-meta">
+                <div>
+                  <h2>{product.name}</h2>
+                  <p className="mono">{product.detail[lang]}</p>
+                </div>
+                <strong>{money(product.price)}</strong>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Toast({ show, children }: { show: boolean; children: React.ReactNode }) {
   return (
     <div className={"toast" + (show ? " show" : "")} role="status">
@@ -445,6 +520,7 @@ export default function ProductContent() {
     <>
       <Nav />
       <main>
+        <ShopCatalog />
         <PDP />
         <Nutrition />
         <Tabs />

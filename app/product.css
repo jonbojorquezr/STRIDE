@@ -3,6 +3,25 @@
    ============================================================ */
 
 /* ---------- PDP ---------- */
+.shop-catalog { padding: clamp(42px, 7vw, 92px) 0 clamp(52px, 8vw, 110px); background: var(--paper); }
+.shop-catalog-head { display: flex; justify-content: space-between; align-items: end; gap: 36px; margin-bottom: 42px; }
+.shop-catalog-head h1 { margin-top: 12px; }
+.shop-catalog-head h1 span { color: var(--teal); }
+.shop-catalog-head > .lede { max-width: 28ch; margin-bottom: 5px; }
+.shop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.shop-card { color: var(--ink); min-width: 0; }
+.shop-card-image { position: relative; overflow: hidden; border-radius: var(--r-lg); background: var(--card); }
+.shop-card-slot { width: 100%; aspect-ratio: 1 / 1; transition: transform .4s var(--ease); }
+.shop-card:hover .shop-card-slot { transform: scale(1.03); }
+.shop-card-arrow { position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--paper); color: var(--product-color); font-size: 20px; transition: transform .25s var(--ease); }
+.shop-card:hover .shop-card-arrow { transform: translate(3px, -3px); }
+.shop-card-meta { display: flex; justify-content: space-between; align-items: start; gap: 12px; padding: 16px 2px 0; }
+.shop-card-meta h2 { margin: 0 0 5px; font-family: var(--font-display); font-stretch: 84%; text-transform: uppercase; font-size: 22px; }
+.shop-card-meta p { margin: 0; color: var(--ink-3); font-size: 11px; }
+.shop-card-meta strong { color: var(--product-color); white-space: nowrap; font-family: var(--font-mono); font-size: 13px; }
+@media (max-width: 820px) { .shop-catalog-head { display: block; } .shop-catalog-head > .lede { margin-top: 18px; } .shop-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 12px; } }
+@media (max-width: 430px) { .shop-grid { grid-template-columns: 1fr; } }
+
 .pdp { padding: clamp(24px, 4vw, 48px) 0 clamp(48px, 7vw, 90px); }
 .pdp-in { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(30px, 4vw, 64px); align-items: start; }
 
