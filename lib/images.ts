@@ -2,18 +2,18 @@
 import type { DivisionId } from "@/lib/routes";
 
 export const IMG = {
-  recoveryFront: "/img/recovery-front.jpg",
-  recoveryAngle: "/img/recovery-angle.jpg",
-  recoverySachets: "/img/recovery-sachets.jpg",
-  recoveryShaker: "/img/recovery-shaker.jpg",
-  recoveryPouch: "/img/recovery-pouch.jpg",
+  recoveryFront: "/img/recovery-front.png",
+  recoveryAngle: "/img/recovery-angle.png",
+  recoverySachets: "/img/recovery-sachets.png",
+  recoveryShaker: "/img/recovery-shaker.png",
+  recoveryPouch: "/img/recovery-pouch.png",
   athletePortrait: "/img/athlete-portrait.jpg",
   lifeRecover: "/img/life-recover.jpg",
   lifeEndure: "/img/life-endure.jpg",
   lifeHydrate: "/img/life-hydrate.jpg",
   lifeWide: "/img/life-wide.jpg",
-  creatine: "/img/creatine.jpg",
-  electrolitos: "/img/electrolitos.jpg",
+  creatine: "/img/creatine.png",
+  electrolitos: "/img/electrolitos.png",
 } as const;
 
 /* Imágenes por división: card (home/cross), hero (empaque), product, life (full-bleed).

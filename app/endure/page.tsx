@@ -3,17 +3,17 @@ import "../division.css";
 import DivisionContent from "@/components/pages/DivisionContent";
 
 export const metadata: Metadata = {
-  title: "Stride — Endure",
+  title: "Creatina — Stride",
   description:
-    "Endure: combustible de resistencia con carbohidratos de liberación sostenida, electrolitos y cafeína natural para los días largos. Domina el juego.",
+    "Creatina monohidratada pura: 5 g por porción para fuerza, potencia y resistencia muscular, sin rellenos ni azúcar añadido.",
   openGraph: {
-    title: "Stride — Endure",
+    title: "Creatina — Stride",
     description:
-      "Combustible de resistencia con carbohidratos de liberación sostenida, electrolitos y cafeína natural para los días largos.",
+      "Creatina monohidratada pura: 5 g por porción para fuerza, potencia y resistencia muscular, sin rellenos ni azúcar añadido.",
     siteName: "Stride",
     locale: "es_MX",
     type: "website",
-    images: ["/img/life-endure.jpg"],
+    images: ["/img/creatine.png"],
   },
 };
 

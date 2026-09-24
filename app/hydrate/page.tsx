@@ -3,17 +3,17 @@ import "../division.css";
 import DivisionContent from "@/components/pages/DivisionContent";
 
 export const metadata: Metadata = {
-  title: "Stride — Hydrate",
+  title: "Electrolitos — Stride",
   description:
-    "Hydrate: hidratación inteligente con sodio, potasio y magnesio y cítricos naturales. Ligera, fresca y sin azúcar. Refresca tu flow.",
+    "Electrolitos con sodio, potasio y magnesio para hidratarte mejor, sin azúcar y con sabor cítrico ligero para entrenar y vivir.",
   openGraph: {
-    title: "Stride — Hydrate",
+    title: "Electrolitos — Stride",
     description:
-      "Hidratación inteligente con sodio, potasio y magnesio y cítricos naturales. Ligera, fresca y sin azúcar.",
+      "Electrolitos con sodio, potasio y magnesio para hidratarte mejor, sin azúcar y con sabor cítrico ligero para entrenar y vivir.",
     siteName: "Stride",
     locale: "es_MX",
     type: "website",
-    images: ["/img/life-hydrate.jpg"],
+    images: ["/img/electrolitos.png"],
   },
 };
 

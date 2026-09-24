@@ -14,6 +14,7 @@ import { useReveal } from "@/components/Reveal";
 import { ImageSlot } from "@/components/ImageSlot";
 import { DIV_IMG } from "@/lib/images";
 import { unitPrice, SUBSCRIPTIONS_ENABLED, type ProductKey } from "@/lib/catalog";
+import { PRODUCT_ARTICLES } from "@/lib/product-copy";
 
 export type { DivisionId };
 
@@ -240,9 +241,9 @@ function DivHero({ D, division }: { D: DivEntry; division: DivisionId }) {
             <a href="#producto" className="btn btn-themed btn-lg">
               {t("Comprar", "Shop")} {D.name} <span className="arrow">→</span>
             </a>
-            <a href="#filosofia" className="btn btn-ghost btn-lg">
-              {t("La filosofía", "The philosophy")}
-            </a>
+            <Link href="/ciencia" className="btn btn-ghost btn-lg">
+              {t("Ciencia", "Science")}
+            </Link>
           </div>
         </div>
         <div className="dh-visual reveal" style={{ "--delay": "150ms" } as React.CSSProperties}>
@@ -430,6 +431,79 @@ function DivLifestyle({ D, division }: { D: DivEntry; division: DivisionId }) {
   );
 }
 
+function ProductReferenceSection({ division }: { division: DivisionId }) {
+  const { lang } = useStore();
+  const article = PRODUCT_ARTICLES[division];
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: article.faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+  return (
+    <section className="section product-detail" aria-labelledby={`product-${division}-info`}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <div className="wrap">
+        <div className="product-detail-head">
+          <p className="eyebrow reveal">{article.subhead}</p>
+          <h2 id={`product-${division}-info`} className="display h-lg reveal" style={{ marginTop: 12 }}>
+            {article.headline}
+          </h2>
+        </div>
+
+        <div className="product-detail-grid">
+          <div className="product-detail-copy reveal">
+            <p className="lede">{article.intro}</p>
+            <div className="product-detail-inline-links" style={{ marginTop: 18 }}>
+              <Link href="/ciencia#referencias" className="mono" style={{ color: "var(--c-ink)" }}>
+                Ver referencias
+              </Link>
+            </div>
+          </div>
+
+          <div className="product-detail-panel reveal">
+            <h3 className="display h-sm">Cuándo tomarlo</h3>
+            <p className="lede">{article.when}</p>
+          </div>
+        </div>
+
+        <div className="product-detail-bullets reveal" style={{ marginTop: 30 }}>
+          <ul className="dprod-benefits">
+            {article.bullets.map((bullet, i) => (
+              <li key={i}>
+                <Mark size={14} color="var(--c)" />
+                {bullet}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="product-faq reveal" style={{ marginTop: 44 }}>
+          <h3 className="display h-md">FAQ</h3>
+          <div className="faq-list">
+            {article.faq.map((item, index) => (
+              <div className="faq-item open" key={index}>
+                <div className="faq-q" aria-expanded="true">
+                  <span>{item.q}</span>
+                  <span className="faq-icon" aria-hidden="true"></span>
+                </div>
+                <div className="faq-a" role="region">
+                  <div>
+                    <p className="lede">{item.a}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function DivCross({ current }: { current: DivisionId }) {
   const { t, lang } = useStore();
   const others = (Object.keys(DIVDATA) as DivisionId[]).filter((k) => k !== current);
@@ -506,6 +580,7 @@ export default function DivisionContent({ division }: { division: DivisionId }) 
         <DivPhilosophy D={D} />
         <DivMarquee name={D.name} />
         <DivProduct D={D} division={division} />
+        <ProductReferenceSection division={division} />
         <DivLifestyle D={D} division={division} />
         <DivCross current={division} />
       </main>

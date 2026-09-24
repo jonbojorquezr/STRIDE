@@ -3,17 +3,17 @@ import "../division.css";
 import DivisionContent from "@/components/pages/DivisionContent";
 
 export const metadata: Metadata = {
-  title: "Stride — Recover",
+  title: "Recovery Mix — Stride",
   description:
-    "Recover: Recovery Mix con proporción 3:2 de carbohidratos y proteína, 18 aminoácidos y 16 vitaminas y minerales. Encuentra tu calma, recupera tu fuerza.",
+    "Recovery Mix: carbohidratos y proteína 3:2 para recuperar glucógeno, reparar músculo y volver más fuerte tras tu entrenamiento.",
   openGraph: {
-    title: "Stride — Recover",
+    title: "Recovery Mix — Stride",
     description:
-      "Recovery Mix con proporción 3:2 de carbohidratos y proteína, 18 aminoácidos y 16 vitaminas y minerales.",
+      "Recovery Mix: carbohidratos y proteína 3:2 para recuperar glucógeno, reparar músculo y volver más fuerte tras tu entrenamiento.",
     siteName: "Stride",
     locale: "es_MX",
     type: "website",
-    images: ["/img/life-recover.jpg"],
+    images: ["/img/recovery-front.png"],
   },
 };
 

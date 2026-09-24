@@ -13,79 +13,101 @@ import { useReveal } from "@/components/Reveal";
 import { Faq } from "@/components/Faq";
 import { ImageSlot } from "@/components/ImageSlot";
 import { IMG, DIV_IMG } from "@/lib/images";
-import { unitPrice } from "@/lib/catalog";
+import { CATALOG, unitPrice } from "@/lib/catalog";
 
 function Hero() {
   const { t } = useStore();
   return (
     <section className="hero">
+      <ImageSlot
+        className="hero-background"
+        shape="rect"
+        eager
+        src={IMG.lifeWide}
+        alt={t("Atleta de resistencia en entrenamiento", "Endurance athlete in training")}
+      />
+      <div className="hero-overlay" />
       <div className="wrap hero-in">
-        <div className="hero-copy">
-          <p className="eyebrow reveal">
-            {t("Running recovery", "Running recovery")} · {t("Hecho en México", "Made in Mexico")}
-          </p>
-          <h1 className="display h-xl hero-title reveal" style={{ "--delay": "60ms" } as React.CSSProperties}>
+        <div className="hero-copy reveal">
+          <h1 className="display h-xl hero-title">
             {t("Recupera", "Recover")}
             <br />
             {t("como compites", "like you race")}
           </h1>
-          <p className="lede reveal" style={{ "--delay": "130ms", maxWidth: "40ch", marginTop: 24 } as React.CSSProperties}>
-            {t(
-              "La fórmula 3:2 de carbohidratos y proteína que la ciencia recomienda para reponer glucógeno y reparar músculo. Limpia, sin relleno.",
-              "The 3:2 carb-to-protein formula science recommends to refuel glycogen and rebuild muscle. Clean, no fillers."
-            )}
-          </p>
-          <div className="hero-cta reveal" style={{ "--delay": "200ms" } as React.CSSProperties}>
-            <Link href={PROD_URL} className="btn btn-primary btn-lg">
-              {t("Comprar Recovery Mix", "Shop Recovery Mix")} <span className="arrow">→</span>
-            </Link>
-            <a href="#ciencia" className="btn btn-ghost btn-lg">
-              {t("La ciencia", "The science")}
-            </a>
-          </div>
-          <dl className="hero-specs reveal" style={{ "--delay": "270ms" } as React.CSSProperties}>
-            <div>
-              <dt>3:2</dt>
-              <dd>{t("carbs : proteína", "carbs : protein")}</dd>
-            </div>
-            <div>
-              <dt>20g</dt>
-              <dd>{t("proteína / porción", "protein / serving")}</dd>
-            </div>
-            <div>
-              <dt>16</dt>
-              <dd>{t("porciones · 1 kg", "servings · 1 kg")}</dd>
-            </div>
-          </dl>
-        </div>
-
-        <div className="hero-visual reveal" style={{ "--delay": "150ms" } as React.CSSProperties}>
-          <div className="hero-frame">
-            <ImageSlot
-              className="hero-slot"
-              shape="rounded"
-              radius={20}
-              eager
-              src={IMG.recoveryFront}
-              alt={t("Stride Recovery Mix", "Stride Recovery Mix")}
-            />
-            <div className="anno anno--1">
-              <span className="mono">{t("ratio", "ratio")}</span>
-              <strong>3:2</strong>
-            </div>
-            <div className="anno anno--2">
-              <span className="mono">{t("por porción", "per serving")}</span>
-              <strong>
-                240<small>kcal</small>
-              </strong>
-            </div>
-            <span className="hero-lot mono">LOT · STR—001 · RECOVERY MIX</span>
-          </div>
+          <Link href={PROD_URL} className="btn btn-accent btn-lg hero-cta">
+            {t("Comprar", "Shop")} <span className="arrow">→</span>
+          </Link>
         </div>
       </div>
       <a href="#valor" className="scroll-hint mono" aria-hidden="true">
         {t("Desliza", "Scroll")} ↓
       </a>
+    </section>
+  );
+}
+
+function Bestsellers() {
+  const { t, lang, money } = useStore();
+  const products = [
+    { id: "recovery", name: "Recovery Mix", detail: { es: "Bolsa 1 kg · 16 porciones", en: "1 kg bag · 16 servings" }, key: "recovery-mix" as const, image: IMG.recoveryFront, href: PROD_URL },
+    { id: "creatine", name: "Creatina", detail: { es: "350 g · 70 porciones", en: "350 g · 70 servings" }, key: "creatina" as const, image: IMG.creatine, href: DIV_URL.endure },
+    { id: "electrolytes", name: "Electrolitos", detail: { es: "180 g · sin azúcar", en: "180 g · sugar-free" }, key: "electrolitos" as const, image: IMG.electrolitos, href: DIV_URL.hydrate },
+  ];
+  return (
+    <section className="section bestsellers" id="valor">
+      <div className="wrap">
+        <div className="section-head">
+          <p className="eyebrow reveal">{t("Bestsellers", "Bestsellers")}</p>
+          <h2 className="display h-lg reveal" style={{ "--delay": "60ms" } as React.CSSProperties}>
+            {t("Lo esencial", "The essentials")}
+          </h2>
+        </div>
+        <div className="bestseller-grid">
+          {products.map((product, i) => (
+            <Link href={product.href} className="bestseller-card reveal" key={product.id} style={{ "--delay": `${i * 70}ms` } as React.CSSProperties}>
+              <ImageSlot className="bestseller-slot" shape="rounded" radius={18} src={product.image} alt={product.name} />
+              <div className="bestseller-meta">
+                <div>
+                  <h3>{product.name}</h3>
+                  <p className="mono">{product.detail[lang]}</p>
+                </div>
+                <strong>{money(CATALOG[product.key].price)}</strong>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AthleteEditorial() {
+  const { t, lang } = useStore();
+  const athletes = [
+    { name: "Braulio Macías", role: { es: "Corredor · México", en: "Runner · Mexico" }, quote: { es: "Antes, después de una carrera larga, me sentía cansadísimo todo el día. Con Stride, mi cuerpo se recupera mucho más rápido y me siento con más energía.", en: "After a long run I used to feel wiped out all day. With Stride my body recovers much faster and I feel more energized." } },
+    { name: "Guillermo Armenta", role: { es: "Ciudad de México", en: "Mexico City" }, quote: { es: "Lo que más me gusta es que ya no siento tanta fatiga después de una carrera larga. Puedo entrenar sin esa sensación de cansancio extremo.", en: "What I like most is that I no longer feel so much fatigue after a long run. I can train without that extreme tiredness." } },
+    { name: "Omar Gameros", role: { es: "Monterrey, México", en: "Monterrey, Mexico" }, quote: { es: "Después de las carreras siempre sufría de calambres, pero desde que empecé con Stride Recovery mi cuerpo se siente más fuerte y ya no tengo esos problemas.", en: "I always cramped after races, but since I started with Stride Recovery my body feels stronger and I don't have those problems anymore." } },
+  ];
+  return (
+    <section className="section athlete-editorial dark">
+      <div className="wrap athlete-editorial-in">
+        <ImageSlot className="athlete-editorial-image" shape="rounded" radius={20} src={IMG.athletePortrait} alt={t("Atleta Stride", "Stride athlete")} />
+        <div>
+          <p className="eyebrow reveal">{t("Atletas Stride", "Stride athletes")}</p>
+          <h2 className="display h-lg reveal" style={{ "--delay": "60ms", marginTop: 14 } as React.CSSProperties}>
+            {t("Hecho para volver", "Made to come back")}
+          </h2>
+          <div className="athlete-quotes">
+            {athletes.map((athlete, i) => (
+              <article className="athlete-quote reveal" key={athlete.name} style={{ "--delay": `${i * 70 + 100}ms` } as React.CSSProperties}>
+                <blockquote>&quot;{athlete.quote[lang]}&quot;</blockquote>
+                <strong>{athlete.name}</strong>
+                <span className="mono">{athlete.role[lang]}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -514,14 +536,10 @@ export default function HomeContent() {
       <Nav />
       <main>
         <Hero />
-        <ValueStrip />
+        <Bestsellers />
         <Science />
-        <ProductFeature />
-        <Divisions />
-        <Community />
-        <Historia />
-        <Faq />
-        <Newsletter />
+        <AthleteEditorial />
+        {/* Newsletter omitido: el formulario actual no persiste correos ni tiene proveedor conectado. */}
       </main>
       <Footer />
     </>
