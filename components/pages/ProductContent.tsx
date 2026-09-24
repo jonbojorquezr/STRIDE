@@ -372,13 +372,13 @@ function Tabs() {
         es: [
           "Mezcla 2 scoops (62.5 g) con 300 ml de agua",
           "Agita bien hasta disolver",
-          "1 scoop por cada 30 min de entrenamiento",
+          "1 porción por sesión de entrenamiento",
           "Tómalo después de tu carrera · no excedas 1 porción al día",
         ],
         en: [
           "Mix 2 scoops (62.5 g) with 300 ml water",
           "Shake well until dissolved",
-          "1 scoop per 30 min of training",
+          "1 serving per training session",
           "Take after your run · don’t exceed 1 serving/day",
         ],
       },
@@ -390,13 +390,13 @@ function Tabs() {
         es: [
           "La proporción 3:2 optimiza la resíntesis de glucógeno",
           "20–40 g de proteína maximizan la síntesis proteica",
-          "La ventana de 30 min potencia la absorción",
+          "La primera hora después del esfuerzo ayuda a reconstruir mejor",
           "Respaldado por literatura de nutrición deportiva",
         ],
         en: [
           "The 3:2 ratio optimizes glycogen resynthesis",
           "20–40 g protein maximizes protein synthesis",
-          "The 30-min window boosts absorption",
+          "The first hour after effort helps recovery more effectively",
           "Backed by sports-nutrition literature",
         ],
       },
@@ -451,8 +451,8 @@ function Reviews() {
       n: "Omar Gameros",
       r: { es: "Monterrey, México", en: "Monterrey, Mexico" },
       q: {
-        es: "Siempre sufría de calambres después de las carreras; desde que tomo Stride Recovery ya no tengo esos problemas.",
-        en: "I always cramped after races; since taking Stride Recovery I don't have those problems anymore.",
+        es: "Desde que tomo Stride Recovery, el cansancio acumulado después de las carreras se siente mucho mejor y puedo volver a entrenar con más confianza.",
+        en: "Since taking Stride Recovery, the accumulated fatigue after races feels much better and I can return to training with more confidence.",
       },
     },
   ];

@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { useStore } from "@/lib/store";
-import { HOME_URL, PROD_URL } from "@/lib/routes";
+import { HOME_URL, PROD_URL, SCIENCE_URL } from "@/lib/routes";
 import { Logo, Mark } from "./Brand";
 
 export function Nav({ dark = true }: { dark?: boolean }) {
@@ -20,7 +20,7 @@ export function Nav({ dark = true }: { dark?: boolean }) {
 
   const links: [string, string][] = [
     [t("Tienda", "Shop"), PROD_URL],
-    [t("Ciencia", "Science"), HOME_URL + "#ciencia"],
+    [t("Ciencia", "Science"), SCIENCE_URL],
     [t("Divisiones", "Divisions"), HOME_URL + "#divisiones"],
     [t("Comunidad", "Community"), HOME_URL + "#comunidad"],
   ];

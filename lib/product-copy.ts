@@ -19,11 +19,11 @@ export const PRODUCT_ARTICLES: Record<string, ProductArticle> = {
       "Perfil completo de 18 aminoácidos",
       "16 vitaminas y minerales",
     ],
-    when: "Tómalo después de correr o de una sesión intensa; la ventana de 30 minutos ayuda a recuperar mejor y volver más fuerte.",
+    when: "Tómalo en la primera hora después de correr o de una sesión intensa; ahí es cuando más ayuda a reponer glucógeno y volver con mejor base.",
     faq: [
       {
         q: "¿Cuándo debo tomar Recovery Mix?",
-        a: "Después de tu entrenamiento o carrera, cuando quieras reponer glucógeno y reparar músculo. Si lo tomas dentro de la primera media hora, la absorción es más eficiente.",
+        a: "Después de tu entrenamiento o carrera, en la primera hora. Es el momento en el que más ayuda a reponer glucógeno y apoyar la recuperación muscular.",
       },
       {
         q: "¿Se puede tomar todos los días?",
@@ -77,11 +77,11 @@ export const PRODUCT_ARTICLES: Record<string, ProductArticle> = {
       "Hidratación inteligente que se siente viva. Sodio, potasio y magnesio con cítricos naturales — ligera, fresca y sin azúcar, para entrenar y para vivir.",
     bullets: [
       "1000 mg de sodio para reponer lo que sudas",
-      "Potasio y magnesio para evitar calambres",
+      "Potasio y magnesio para apoyo de hidratación y contracción muscular",
       "Cero azúcar · endulzado con estevia",
       "Ácido cítrico y málico para un sabor fresco",
     ],
-    when: "Tómalo antes, durante o después del entrenamiento; también lo puedes usar en días de calor, viajes o cuando aumente la sudoración.",
+    when: "Tómalo al despertar o 30 minutos antes de entrenar; también sirve en días de calor, viajes o cuando aumente la sudoración.",
     faq: [
       {
         q: "¿Cuándo debo tomar electrolitos?",

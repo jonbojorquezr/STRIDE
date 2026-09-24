@@ -3,17 +3,17 @@ import "./home.css";
 import HomeContent from "@/components/pages/HomeContent";
 
 export const metadata: Metadata = {
-  title: "Stride — Recovery Mix · Running Recovery",
+  title: "Stride | Suplementos de Recuperación para Corredores",
   description:
-    "Stride: recuperación para atletas de resistencia. La fórmula 3:2 de carbohidratos y proteína, respaldada por la ciencia. Hecho en México.",
+    "Stride: suplementos para corredores y atletas de resistencia. Recovery Mix, Creatina y Electrolitos con formulación basada en evidencia y hechos en México.",
   openGraph: {
-    title: "Stride — Recovery Mix · Running Recovery",
+    title: "Stride | Suplementos de Recuperación para Corredores",
     description:
-      "Recuperación para atletas de resistencia. La fórmula 3:2 de carbohidratos y proteína, respaldada por la ciencia. Hecho en México.",
+      "Suplementos para corredores y atletas de resistencia. Recovery Mix, Creatina y Electrolitos con formulación basada en evidencia y hechos en México.",
     siteName: "Stride",
     locale: "es_MX",
     type: "website",
-    images: ["/img/recovery-front.jpg"],
+    images: ["/img/recovery-front.png"],
   },
 };
 

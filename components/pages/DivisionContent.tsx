@@ -174,7 +174,7 @@ const DIVDATA: Record<DivisionId, DivEntry> = {
     benefits: {
       es: [
         "1000 mg de sodio para reponer lo que sudas",
-        "Potasio y magnesio para evitar calambres",
+        "Potasio y magnesio para apoyo de hidratación y contracción muscular",
         "Cero azúcar · endulzado con estevia",
         "Ácido cítrico y málico para un sabor fresco",
       ],

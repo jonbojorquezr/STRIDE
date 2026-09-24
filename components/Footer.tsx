@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useStore } from "@/lib/store";
-import { HOME_URL, PROD_URL, DIV_URL } from "@/lib/routes";
+import { HOME_URL, PROD_URL, DIV_URL, SCIENCE_URL } from "@/lib/routes";
 
 export function Footer() {
   const { t } = useStore();
@@ -9,17 +9,16 @@ export function Footer() {
     [
       t("Tienda", "Shop"),
       [
-        [t("Recovery Mix", "Recovery Mix"), PROD_URL],
-        ["Recover", DIV_URL.recover],
-        ["Endure", DIV_URL.endure],
-        ["Hydrate", DIV_URL.hydrate],
+        ["Recovery Mix", PROD_URL],
+        ["Creatina", DIV_URL.endure],
+        ["Electrolitos", DIV_URL.hydrate],
       ],
     ],
     [
       t("Marca", "Brand"),
       [
         [t("Historia", "Story"), HOME_URL + "#historia"],
-        [t("Ciencia", "Science"), HOME_URL + "#ciencia"],
+        [t("Ciencia", "Science"), SCIENCE_URL],
         [t("Comunidad", "Community"), HOME_URL + "#comunidad"],
       ],
     ],

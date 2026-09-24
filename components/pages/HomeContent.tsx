@@ -5,7 +5,7 @@
 import React from "react";
 import Link from "next/link";
 import { useStore } from "@/lib/store";
-import { PROD_URL, DIV_URL } from "@/lib/routes";
+import { PROD_URL, DIV_URL, SCIENCE_URL } from "@/lib/routes";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Mark } from "@/components/Brand";
@@ -86,7 +86,7 @@ function AthleteEditorial() {
   const athletes = [
     { name: "Braulio Macías", role: { es: "Corredor · México", en: "Runner · Mexico" }, quote: { es: "Antes, después de una carrera larga, me sentía cansadísimo todo el día. Con Stride, mi cuerpo se recupera mucho más rápido y me siento con más energía.", en: "After a long run I used to feel wiped out all day. With Stride my body recovers much faster and I feel more energized." } },
     { name: "Guillermo Armenta", role: { es: "Ciudad de México", en: "Mexico City" }, quote: { es: "Lo que más me gusta es que ya no siento tanta fatiga después de una carrera larga. Puedo entrenar sin esa sensación de cansancio extremo.", en: "What I like most is that I no longer feel so much fatigue after a long run. I can train without that extreme tiredness." } },
-    { name: "Omar Gameros", role: { es: "Monterrey, México", en: "Monterrey, Mexico" }, quote: { es: "Después de las carreras siempre sufría de calambres, pero desde que empecé con Stride Recovery mi cuerpo se siente más fuerte y ya no tengo esos problemas.", en: "I always cramped after races, but since I started with Stride Recovery my body feels stronger and I don't have those problems anymore." } },
+    { name: "Omar Gameros", role: { es: "Monterrey, México", en: "Monterrey, Mexico" }, quote: { es: "Desde que empecé con Stride Recovery, el cansancio acumulado después de las carreras se siente mucho mejor y vuelvo a entrenar con más confianza.", en: "Since I started with Stride Recovery, the accumulated fatigue after races feels much better and I get back to training with more confidence." } },
   ];
   return (
     <section className="section athlete-editorial dark">
@@ -156,10 +156,10 @@ function Science() {
     },
     {
       n: "03",
-      t: t("La ventana de 30 min", "The 30-minute window"),
+      t: t("La primera hora", "The first hour"),
       d: t(
-        "Tu cuerpo absorbe nutrientes como esponja justo después de correr. Stride está hecho para ese momento.",
-        "Your body soaks up nutrients right after a run. Stride is built for that window."
+        "La primera hora post entrenamiento es donde el cuerpo más necesita reponer glucógeno y líquidos para volver a la siguiente sesión con mejor base.",
+        "The first hour after training is when your body most needs glycogen and fluid replacement to return to the next session with a stronger base."
       ),
     },
   ];
@@ -196,6 +196,11 @@ function Science() {
               <p className="lede">{p.d}</p>
             </article>
           ))}
+        </div>
+        <div style={{ marginTop: 34 }}>
+          <Link href={SCIENCE_URL} className="btn btn-ghost">
+            {t("Leer toda la ciencia", "Read the full science")} <span className="arrow">→</span>
+          </Link>
         </div>
       </div>
     </section>
@@ -366,8 +371,8 @@ function Community() {
     },
     {
       q: {
-        es: "Después de las carreras siempre sufría de calambres, pero desde que empecé con Stride Recovery mi cuerpo se siente más fuerte y ya no tengo esos problemas.",
-        en: "I always cramped after races, but since I started with Stride Recovery my body feels stronger and I don't have those problems anymore.",
+        es: "Desde que empecé con Stride Recovery, el cansancio acumulado después de las carreras se siente mucho mejor y vuelvo a entrenar con más confianza.",
+        en: "Since I started with Stride Recovery, the accumulated fatigue after races feels much better and I get back to training with more confidence.",
       },
       n: "Omar Gameros",
       r: { es: "Monterrey, México", en: "Monterrey, Mexico" },

@@ -3,13 +3,13 @@ import "../product.css";
 import ProductContent from "@/components/pages/ProductContent";
 
 export const metadata: Metadata = {
-  title: "Recovery Mix — Stride",
+  title: "Recovery Mix | Stride",
   description:
-    "Recovery Mix: mezcla post-entrenamiento con proporción 3:2 de carbohidratos y proteína. 20 g de proteína, 30 g de carbohidratos, 0 g de azúcar añadido. Hecho en México.",
+    "Recovery Mix para corredores: 20 g de proteína, 30 g de carbohidratos y Cluster Dextrin para recuperar glucógeno sin indigestión. Hecho en México.",
   openGraph: {
-    title: "Recovery Mix — Stride",
+    title: "Recovery Mix | Stride",
     description:
-      "Mezcla post-entrenamiento con proporción 3:2 de carbohidratos y proteína. 20 g de proteína, 30 g de carbohidratos y 0 g de azúcar añadido.",
+      "Recovery Mix para corredores: 20 g de proteína, 30 g de carbohidratos y Cluster Dextrin para recuperar glucógeno sin indigestión.",
     siteName: "Stride",
     locale: "es_MX",
     type: "website",
